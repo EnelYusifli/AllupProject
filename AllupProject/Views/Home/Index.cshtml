@@ -1335,15 +1335,13 @@
 <div class="banner-area pt-70">
     <div class="container-fluid custom-container">
         <div class="row">
+            @foreach(var banner in Model.Banners){
             <div class="col-md-6">
                 <div class="banner-image banner-2">
-                    <a href="shop-4-column.html"><img src="~/assets/images/banner-6.jpg" alt="banner"></a>
+                    <a href="@banner.RedirectUrl"><img src="~/uploads/banners/@banner.ImageUrl" alt="banner"></a>
                 </div> <!-- banner image -->
             </div>
-            <div class="col-md-6">
-                <div class="banner-image banner-2">
-                    <a href="shop-4-column.html"><img src="~/assets/images/banner-7.jpg" alt="banner"></a>
-                </div> <!-- banner image -->
+            }
             </div>
         </div> <!-- row -->
     </div> <!-- container -->
