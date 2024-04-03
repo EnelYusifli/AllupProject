@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\enelry\\source\\repos\\AllupProject\\AllupProject\\AllupProject.csproj": {}
+    "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\AllupProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\enelry\\source\\repos\\AllupProject\\AllupProject\\AllupProject.csproj": {
+    "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\AllupProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\enelry\\source\\repos\\AllupProject\\AllupProject\\AllupProject.csproj",
+        "projectUniqueName": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\AllupProject.csproj",
         "projectName": "AllupProject",
-        "projectPath": "C:\\Users\\enelry\\source\\repos\\AllupProject\\AllupProject\\AllupProject.csproj",
-        "packagesPath": "C:\\Users\\enelry\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\enelry\\source\\repos\\AllupProject\\AllupProject\\obj\\",
+        "projectPath": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\AllupProject.csproj",
+        "packagesPath": "C:\\Users\\Enel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\enelry\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Enel\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -49,6 +45,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -62,6 +62,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[8.0.2, )"
             }
           },
           "imports": [

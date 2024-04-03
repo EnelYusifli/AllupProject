@@ -1,11 +1,16 @@
+using AllupProject;
+using AllupProject.DAL;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
-//builder.Services.AddDbContext<PustokDbContext>(opt =>
-//{
-//    opt.UseSqlServer(builder.Configuration.GetConnectionString("default"));
-//});
+builder.Services.AddDbContext<AllupDbContext>(opt =>
+{
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("default"));
+});
+
+builder.Services.AddServices();
 //builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
 //{
 //    opt.Password.RequireNonAlphanumeric = true;

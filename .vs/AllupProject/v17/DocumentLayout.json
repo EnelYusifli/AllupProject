@@ -1,26 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\enelry\\source\\repos\\AllupProject\\",
+  "WorkspaceRootPath": "C:\\Users\\Enel\\Desktop\\AllupProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|c:\\users\\enelry\\source\\repos\\allupproject\\allupproject\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|solutionrelative:allupproject\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|c:\\users\\enelry\\source\\repos\\allupproject\\allupproject\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|solutionrelative:allupproject\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|c:\\users\\enelry\\source\\repos\\allupproject\\allupproject\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|c:\\users\\enel\\desktop\\allupproject\\allupproject\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|solutionrelative:allupproject\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|c:\\users\\enelry\\source\\repos\\allupproject\\allupproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|c:\\users\\enel\\desktop\\allupproject\\allupproject\\dal\\allupdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|solutionrelative:allupproject\\dal\\allupdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|c:\\users\\enel\\desktop\\allupproject\\allupproject\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|solutionrelative:allupproject\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|c:\\users\\enel\\desktop\\allupproject\\allupproject\\viewmodels\\homeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|solutionrelative:allupproject\\viewmodels\\homeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|c:\\users\\enel\\desktop\\allupproject\\allupproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|solutionrelative:allupproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|c:\\users\\enelry\\source\\repos\\allupproject\\allupproject\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|solutionrelative:allupproject\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|c:\\users\\enel\\desktop\\allupproject\\allupproject\\models\\slider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|solutionrelative:allupproject\\models\\slider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +34,84 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\enelry\\source\\repos\\AllupProject\\AllupProject\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "AllupProject\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\enelry\\source\\repos\\AllupProject\\AllupProject\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "AllupProject\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-03T13:10:45.461Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "_ViewImports.cshtml",
-              "DocumentMoniker": "C:\\Users\\enelry\\source\\repos\\AllupProject\\AllupProject\\Views\\_ViewImports.cshtml",
-              "RelativeDocumentMoniker": "AllupProject\\Views\\_ViewImports.cshtml",
-              "ToolTip": "C:\\Users\\enelry\\source\\repos\\AllupProject\\AllupProject\\Views\\_ViewImports.cshtml",
-              "RelativeToolTip": "AllupProject\\Views\\_ViewImports.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-03T13:04:10.415Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\enelry\\source\\repos\\AllupProject\\AllupProject\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "AllupProject\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\enelry\\source\\repos\\AllupProject\\AllupProject\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "AllupProject\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAADAAAAAYAAAA",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "AllupProject\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "AllupProject\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAABXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-03T13:02:49.286Z",
+              "WhenOpened": "2024-04-03T16:27:31.354Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "AllupProject\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "AllupProject\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAAABYAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-03T16:25:03.972Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\enelry\\source\\repos\\AllupProject\\AllupProject\\Program.cs",
-              "RelativeDocumentMoniker": "AllupProject\\Program.cs",
-              "ToolTip": "C:\\Users\\enelry\\source\\repos\\AllupProject\\AllupProject\\Program.cs",
-              "RelativeToolTip": "AllupProject\\Program.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAAA4AAAApAAAA",
+              "Title": "HomeViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\ViewModels\\HomeViewModel.cs",
+              "RelativeDocumentMoniker": "AllupProject\\ViewModels\\HomeViewModel.cs",
+              "ToolTip": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\ViewModels\\HomeViewModel.cs",
+              "RelativeToolTip": "AllupProject\\ViewModels\\HomeViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T12:58:19.751Z",
+              "WhenOpened": "2024-04-03T16:21:54.489Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\enelry\\source\\repos\\AllupProject\\AllupProject\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "AllupProject\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\enelry\\source\\repos\\AllupProject\\AllupProject\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "AllupProject\\Controllers\\HomeController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Program.cs",
+              "RelativeDocumentMoniker": "AllupProject\\Program.cs",
+              "ToolTip": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Program.cs",
+              "RelativeToolTip": "AllupProject\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T12:57:05.732Z",
+              "WhenOpened": "2024-04-03T15:50:26.83Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AllupDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\DAL\\AllupDbContext.cs",
+              "RelativeDocumentMoniker": "AllupProject\\DAL\\AllupDbContext.cs",
+              "ToolTip": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\DAL\\AllupDbContext.cs",
+              "RelativeToolTip": "AllupProject\\DAL\\AllupDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-03T15:45:38.433Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Slider.cs",
+              "DocumentMoniker": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Models\\Slider.cs",
+              "RelativeDocumentMoniker": "AllupProject\\Models\\Slider.cs",
+              "ToolTip": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Models\\Slider.cs",
+              "RelativeToolTip": "AllupProject\\Models\\Slider.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-03T15:45:20.538Z",
               "EditorCaption": ""
             }
           ]

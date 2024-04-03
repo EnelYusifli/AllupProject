@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AllupProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c995a1c5072664ff747d49ddd33a2bd5fcf89359")]
 [assembly: System.Reflection.AssemblyProductAttribute("AllupProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AllupProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

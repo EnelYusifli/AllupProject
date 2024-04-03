@@ -1,0 +1,46 @@
+﻿@model Slider
+<div class="container-fluid">
+    <h1>Update</h1>
+    <form method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="Title1" class="form-label">Title1</label>
+            <input asp-for="Title1" class="form-control">
+            <span asp-validation-for="Title1" style="color:red"></span>
+        </div>
+        <div class="mb-3">
+            <label for="Title2" class="form-label">Title2</label>
+            <input asp-for="Title2" class="form-control">
+            <span asp-validation-for="Title2" style="color:red"></span>
+        </div>
+        <div class="mb-3">
+            <label for="Desc" class="form-label">Desc</label>
+            <input asp-for="Desc" class="form-control">
+            <span asp-validation-for="Desc" style="color:red"></span>
+        </div>
+        <div class="mb-3">
+            <label for="RedirectUrl" class="form-label">RedirectUrl</label>
+            <input asp-for="RedirectUrl" class="form-control">
+            <span asp-validation-for="RedirectUrl" style="color:red"></span>
+        </div>
+        <div class="mb-3">
+            <label for="RedirectUrl" class="form-label">RedirectUrlText</label>
+            <input asp-for="RedirectUrlText" class="form-control">
+            <span asp-validation-for="RedirectUrlText" style="color:red"></span>
+        </div>
+        <div class="mb-3">
+            <div>
+                <img src="~/uploads/sliders/@Model.ImageUrl" alt="Alternate Text" style="width:200px" />
+            </div>
+            <label for="ImageFile" class="form-label">ImageFile</label><br>
+            <input asp-for="ImageFile" accept="image/*" class="form"><br>
+            <span asp-validation-for="ImageFile" style="color:red"></span>
+        </div>
+        <div class="mb-3">
+            <label for="IsDeactive" class="form-label">IsDeactive</label>
+            <input asp-for="IsDeactive" class="form-control">
+            <span asp-validation-for="IsDeactive" style="color:red"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
