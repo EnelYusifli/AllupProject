@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ujJbjqZM1h6t+XmsfnN/GTd4vnUf4e0Y9WZIexNiPJg=",
+  "Hash": "+8eLsQto66/zeJFTteblO3vbL8Ca7QP60U4q8/22Cd0=",
   "Source": "AllupProject",
   "BasePath": "_content/AllupProject",
   "Mode": "Default",
@@ -38169,6 +38169,44 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\wwwroot\\uploads\\sliders\\23a45c82-40c8-40d3-91c5-2300a9bc8208banner-8.jpg",
+      "SourceId": "AllupProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\wwwroot\\",
+      "BasePath": "_content/AllupProject",
+      "RelativePath": "uploads/sliders/23a45c82-40c8-40d3-91c5-2300a9bc8208banner-8.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\sliders\\23a45c82-40c8-40d3-91c5-2300a9bc8208banner-8.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\wwwroot\\uploads\\sliders\\3566765e-6ad8-40f1-aab1-153e64454849slider-6.jpg",
+      "SourceId": "AllupProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\wwwroot\\",
+      "BasePath": "_content/AllupProject",
+      "RelativePath": "uploads/sliders/3566765e-6ad8-40f1-aab1-153e64454849slider-6.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\sliders\\3566765e-6ad8-40f1-aab1-153e64454849slider-6.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\wwwroot\\uploads\\sliders\\6db38c1b-8c67-470e-8b6e-beb8de07da3cslider-5.jpg",
       "SourceId": "AllupProject",
       "SourceType": "Discovered",
@@ -38186,6 +38224,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\sliders\\6db38c1b-8c67-470e-8b6e-beb8de07da3cslider-5.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\wwwroot\\uploads\\sliders\\6fa56b37-397b-462a-94f0-ebe389cd1761banner-9.jpg",
+      "SourceId": "AllupProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\wwwroot\\",
+      "BasePath": "_content/AllupProject",
+      "RelativePath": "uploads/sliders/6fa56b37-397b-462a-94f0-ebe389cd1761banner-9.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\sliders\\6fa56b37-397b-462a-94f0-ebe389cd1761banner-9.jpg"
     }
   ]
 }

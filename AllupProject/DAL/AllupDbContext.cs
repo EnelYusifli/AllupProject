@@ -8,4 +8,5 @@ public class AllupDbContext : IdentityDbContext
 {
     public AllupDbContext(DbContextOptions<AllupDbContext> options) : base(options) { }
     public DbSet<Slider> Sliders { get; set; }  
+    public DbSet<Banner> Banners { get; set; }  
 }

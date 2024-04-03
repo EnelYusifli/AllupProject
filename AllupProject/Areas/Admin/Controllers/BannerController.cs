@@ -6,18 +6,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AllupProject.Areas.Admin.Controllers;
 [Area("Admin")]
-public class SliderController : Controller
+public class BannerController : Controller
 {
-    private readonly ISliderService _sliderService;
+    private readonly IBannerService _bannerService;
 
-    public SliderController(ISliderService sliderService)
+    public BannerController(IBannerService bannerService)
     {
-        _sliderService = sliderService;
+        _bannerService = bannerService;
     }
     public async Task<IActionResult> Index()
     {
-        List<Slider> Sliders = await _sliderService.GetAllAsync();
-        return View(Sliders);
+        List<Banner> banners = await _bannerService.GetAllAsync();
+        return View(banners);
     }
     public IActionResult Create()
     {
@@ -25,16 +25,16 @@ public class SliderController : Controller
     }
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create(Slider slider)
+    public async Task<IActionResult> Create(Banner banner)
     {
         if (!ModelState.IsValid) return View();
         try
         {
-            await _sliderService.CreateAsync(slider);
+            await _bannerService.CreateAsync(banner);
         }
         catch (ImageCannotBeNullException ex)
         {
-            ModelState.AddModelError(ex.Property,ex.Message);
+            ModelState.AddModelError(ex.Property, ex.Message);
             return View();
         }
         catch (InvalidContentTypeException ex)
@@ -49,7 +49,7 @@ public class SliderController : Controller
         }
         catch (Exception ex)
         {
-            ModelState.AddModelError("",ex.Message);
+            ModelState.AddModelError("", ex.Message);
             return View();
         }
         return RedirectToAction("Index");
@@ -58,15 +58,15 @@ public class SliderController : Controller
     {
         try
         {
-        Slider slider = await _sliderService.GetByIdAsync(id);
-        return View(slider);
+            Banner banner = await _bannerService.GetByIdAsync(id);
+            return View(banner);
         }
         catch (EntityCannotBeFoundException ex)
         {
             ModelState.AddModelError("", ex.Message);
             return View();
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             ModelState.AddModelError("", ex.Message);
             return View();
@@ -75,12 +75,12 @@ public class SliderController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Update(Slider slider)
+    public async Task<IActionResult> Update(Banner banner)
     {
-        if (!ModelState.IsValid) return View(slider);
+        if (!ModelState.IsValid) return View(banner);
         try
         {
-            await _sliderService.UpdateAsync(slider);
+            await _bannerService.UpdateAsync(banner);
         }
         catch (InvalidContentTypeException ex)
         {
@@ -103,7 +103,7 @@ public class SliderController : Controller
     {
         try
         {
-            await _sliderService.DeleteAsync(id);
+            await _bannerService.DeleteAsync(id);
             return Ok();
         }
         catch (Exception ex)

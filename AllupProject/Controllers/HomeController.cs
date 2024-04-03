@@ -1,9 +1,7 @@
 using AllupProject.DAL;
 using AllupProject.ViewModels;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Diagnostics;
 
 namespace AllupProject.Controllers;
 
@@ -19,7 +17,8 @@ public class HomeController : Controller
     {
         HomeViewModel homeViewModel = new HomeViewModel()
         {
-            Sliders = await _context.Sliders.ToListAsync()
+            Sliders = await _context.Sliders.ToListAsync(),
+            Banners = await _context.Banners.ToListAsync()
         };
         return View(homeViewModel);
     }

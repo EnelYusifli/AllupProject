@@ -24,12 +24,11 @@
                 </div>
             </div>
             <div class="col-lg-4">
+                @foreach(var banner in Model.Banners){
                 <div class="slider-banner mt-30">
-                    <a href="shop-4-column.html"><img src="~/assets/images/banner-8.jpg" alt="banner"></a>
+                    <a href="@banner.RedirectUrl"><img src="~/uploads/banners/@banner.ImageUrl" alt="banner"></a>
                 </div> <!-- slider banner -->
-                <div class="slider-banner mt-30">
-                    <a href="shop-4-column.html"><img src="~/assets/images/banner-9.jpg" alt="banner"></a>
-                </div> <!-- slider banner -->
+                }
             </div>
         </div> <!-- row -->
     </div> <!-- container -->

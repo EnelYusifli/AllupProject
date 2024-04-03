@@ -8029,8 +8029,20 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\wwwroot\\uploads\\sliders\\23a45c82-40c8-40d3-91c5-2300a9bc8208banner-8.jpg",
+      "PackagePath": "staticwebassets\\uploads\\sliders\\23a45c82-40c8-40d3-91c5-2300a9bc8208banner-8.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\wwwroot\\uploads\\sliders\\3566765e-6ad8-40f1-aab1-153e64454849slider-6.jpg",
+      "PackagePath": "staticwebassets\\uploads\\sliders\\3566765e-6ad8-40f1-aab1-153e64454849slider-6.jpg"
+    },
+    {
       "Id": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\wwwroot\\uploads\\sliders\\6db38c1b-8c67-470e-8b6e-beb8de07da3cslider-5.jpg",
       "PackagePath": "staticwebassets\\uploads\\sliders\\6db38c1b-8c67-470e-8b6e-beb8de07da3cslider-5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\wwwroot\\uploads\\sliders\\6fa56b37-397b-462a-94f0-ebe389cd1761banner-9.jpg",
+      "PackagePath": "staticwebassets\\uploads\\sliders\\6fa56b37-397b-462a-94f0-ebe389cd1761banner-9.jpg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.AllupProject.Microsoft.AspNetCore.StaticWebAssets.props",

@@ -6,7 +6,7 @@ using AllupProject.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
-namespace PustokTemp.Business.Implementations;
+namespace AllupProject.Business.Implementations;
 
 public class SliderService : ISliderService
 {
