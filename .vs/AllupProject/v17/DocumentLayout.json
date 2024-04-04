@@ -3,24 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Enel\\Desktop\\AllupProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|c:\\users\\enel\\desktop\\allupproject\\allupproject\\business\\implementations\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|solutionrelative:allupproject\\business\\implementations\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|c:\\users\\enel\\desktop\\allupproject\\allupproject\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|solutionrelative:allupproject\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|c:\\users\\enel\\desktop\\allupproject\\allupproject\\business\\implementations\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|solutionrelative:allupproject\\business\\implementations\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|c:\\users\\enel\\desktop\\allupproject\\allupproject\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|solutionrelative:allupproject\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|c:\\users\\enel\\desktop\\allupproject\\allupproject\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|solutionrelative:allupproject\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|c:\\users\\enel\\desktop\\allupproject\\allupproject\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|solutionrelative:allupproject\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|c:\\users\\enel\\desktop\\allupproject\\allupproject\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|solutionrelative:allupproject\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|c:\\users\\enel\\desktop\\allupproject\\allupproject\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|solutionrelative:allupproject\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Business\\Implementations\\AuthService.cs",
-              "RelativeDocumentMoniker": "AllupProject\\Business\\Implementations\\AuthService.cs",
-              "ToolTip": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Business\\Implementations\\AuthService.cs",
-              "RelativeToolTip": "AllupProject\\Business\\Implementations\\AuthService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAA8AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-04T19:29:54.152Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AccountService.cs",
-              "DocumentMoniker": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Business\\Implementations\\AccountService.cs",
-              "RelativeDocumentMoniker": "AllupProject\\Business\\Implementations\\AccountService.cs",
-              "ToolTip": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Business\\Implementations\\AccountService.cs",
-              "RelativeToolTip": "AllupProject\\Business\\Implementations\\AccountService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAtAAAA",
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "AllupProject\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "AllupProject\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAB0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-04T19:07:51.282Z",
+              "WhenOpened": "2024-04-04T19:50:59.12Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "AllupProject\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "AllupProject\\Controllers\\AccountController.cs",
-              "ViewState": "AQIAAEgAAAAAAAAAAAAAAB4AAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-04T19:01:51.063Z",
+              "DocumentIndex": 0,
+              "Title": "About.cshtml",
+              "DocumentMoniker": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Views\\Home\\About.cshtml",
+              "RelativeDocumentMoniker": "AllupProject\\Views\\Home\\About.cshtml",
+              "ToolTip": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Views\\Home\\About.cshtml",
+              "RelativeToolTip": "AllupProject\\Views\\Home\\About.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-04T19:45:26.962Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Views\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "AllupProject\\Views\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Views\\Account\\Login.cshtml",
-              "RelativeToolTip": "AllupProject\\Views\\Account\\Login.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAOAAAA",
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "AllupProject\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "AllupProject\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAIkBAAAAAAAAAAAAwJMBAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-04T18:49:40.981Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Register.cshtml",
-              "DocumentMoniker": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Views\\Account\\Register.cshtml",
-              "RelativeDocumentMoniker": "AllupProject\\Views\\Account\\Register.cshtml",
-              "ToolTip": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Views\\Account\\Register.cshtml",
-              "RelativeToolTip": "AllupProject\\Views\\Account\\Register.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-04T18:45:54.305Z",
+              "WhenOpened": "2024-04-04T19:40:40.985Z",
               "EditorCaption": ""
             }
           ]

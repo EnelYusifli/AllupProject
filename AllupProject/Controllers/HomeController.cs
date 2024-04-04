@@ -24,6 +24,6 @@ public class HomeController : Controller
         };
         return View(homeViewModel);
     }
-
+    public IActionResult About() => View();
 
 }
