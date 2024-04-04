@@ -7,6 +7,7 @@ using AllupProject.DAL;
 using AllupProject.Areas.Admin.ViewModels;
 using AllupProject.CustomExceptions.Common;
 using AllupProject.Business.Interfaces;
+using AllupProject.Models;
 
 namespace AllupProject.Areas.Admin.Controllers;
 [Area("Admin")]
@@ -137,6 +138,12 @@ public class AuthController : Controller
     //        Email = "superadmin@gmail.com"
     //    };
     //    var result = await _userManager.CreateAsync(superAdmin, "SuperAdmin123!");
+    //    IdentityUser admin = new IdentityUser()
+    //    {
+    //        UserName = "admin",
+    //        Email = "admin@gmail.com"
+    //    };
+    //    var result2 = await _userManager.CreateAsync(admin, "Admin123!");
 
     //    return Ok(result);
     //}
@@ -153,7 +160,9 @@ public class AuthController : Controller
     //public async Task<IActionResult> AddRole()
     //{
     //    IdentityUser superAdmin = await _userManager.FindByNameAsync("SuperAdmin");
+    //    IdentityUser admin = await _userManager.FindByNameAsync("Admin");
     //    var result = await _userManager.AddToRoleAsync(superAdmin, "SuperAdmin");
+    //    var result2 = await _userManager.AddToRoleAsync(admin, "Admin");
     //    return Ok(result);
     //}
 }

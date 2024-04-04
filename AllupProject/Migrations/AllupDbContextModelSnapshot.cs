@@ -47,7 +47,7 @@ namespace AllupProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Banners");
+                    b.ToTable("Banners", (string)null);
                 });
 
             modelBuilder.Entity("AllupProject.Models.Category", b =>
@@ -74,7 +74,7 @@ namespace AllupProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("AllupProject.Models.Product", b =>
@@ -139,7 +139,7 @@ namespace AllupProject.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("AllupProject.Models.ProductImage", b =>
@@ -173,7 +173,7 @@ namespace AllupProject.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductImages");
+                    b.ToTable("ProductImages", (string)null);
                 });
 
             modelBuilder.Entity("AllupProject.Models.Slider", b =>
@@ -221,7 +221,7 @@ namespace AllupProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Sliders");
+                    b.ToTable("Sliders", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

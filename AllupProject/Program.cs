@@ -1,5 +1,6 @@
 using AllupProject;
 using AllupProject.DAL;
+using AllupProject.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

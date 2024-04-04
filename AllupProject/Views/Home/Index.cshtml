@@ -6,28 +6,29 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="slider-active mt-30">
-                    @foreach(var slider in Model.Sliders)
+                    @foreach (var slider in Model.Sliders)
                     {
-                    <div class="single-slider">
-                        <div class="slider-image">
-                            <img src="~/uploads/sliders/@slider.ImageUrl" alt="slider">
-                        </div>
-                        <div class="slider-content-wrapper">
-                            <div class="slider-content">
-                                <h1 data-animation="bounceInDown" data-delay="0.2s" class="main-title ">@slider.Title1</h1>
-                                <p data-animation="bounceInDown" data-delay="0.5s"><br>@slider.Title2</p>
-                                <a data-animation="zoomIn" data-delay="0.8s" class="main-btn " href="@slider.RedirectUrl">@slider.RedirectUrlText</a>
+                        <div class="single-slider">
+                            <div class="slider-image">
+                                <img src="~/uploads/sliders/@slider.ImageUrl" alt="slider">
                             </div>
-                        </div>
-                    </div> <!-- single slider -->
+                            <div class="slider-content-wrapper">
+                                <div class="slider-content">
+                                    <h1 data-animation="bounceInDown" data-delay="0.2s" class="main-title ">@slider.Title1</h1>
+                                    <p data-animation="bounceInDown" data-delay="0.5s"><br>@slider.Title2</p>
+                                    <a data-animation="zoomIn" data-delay="0.8s" class="main-btn " href="@slider.RedirectUrl">@slider.RedirectUrlText</a>
+                                </div>
+                            </div>
+                        </div> <!-- single slider -->
                     }
                 </div>
             </div>
             <div class="col-lg-4">
-                @foreach(var banner in Model.Banners.Take(2)){
-                <div class="slider-banner mt-30">
-                    <a href="@banner.RedirectUrl"><img src="~/uploads/banners/@banner.ImageUrl" alt="banner"></a>
-                </div> <!-- slider banner -->
+                @foreach (var banner in Model.Banners.Take(2))
+                {
+                    <div class="slider-banner mt-30">
+                        <a href="@banner.RedirectUrl"><img src="~/uploads/banners/@banner.ImageUrl" alt="banner"></a>
+                    </div> <!-- slider banner -->
                 }
             </div>
         </div> <!-- row -->
@@ -116,13 +117,170 @@
             <div class="tab-pane fade show active" id="new" role="tabpanel" aria-labelledby="new-tab">
                 <div class="product-items">
                     <div class="row product-active">
-                        <div class="col">
-                            @foreach(var product in Model.Products.Where(x=>x.IsNew==true)){
+                        @foreach (var product in Model.Products.Where(x => x.IsNew == true))
+                        {
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="single-product mt-30">
+                                    <div class="product-image">
+                                        <a href="single-product.html">
+                                            <img class="first-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==true).FirstOrDefault().Url" alt="product">
+                                            <img class="second-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==false).FirstOrDefault().Url" alt="product">
+                                        </a>
+                                        <ul class="product-meta">
+                                            <li><a href="#"><i class="icon ion-bag"></i></a></li>
+                                            <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
+                                            <li><a href="#"><i class="icon ion-android-options"></i></a></li>
+                                            <li><a data-toggle="modal" data-target="#productQuickModal" href="#"><i class="icon ion-android-open"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="product-content">
+                                        <ul class="product-rating">
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                        </ul>
+                                        <h4 class="product-title"><a href="single-product.html">@product.Title</a></h4>
+                                        <div class="product-price">
+                                            <span class="price-sale">$@product.SalePrice</span>
+                                        </div>
+                                    </div>
+                                </div> <!-- single product -->
+                            </div>
+                        }
+                    </div> <!-- row -->
+
+                </div> <!-- product items -->
+            </div>
+            <div class="tab-pane fade" id="bestseller" role="tabpanel" aria-labelledby="bestseller-tab">
+                <div class="product-items">
+                    <div class="row product-active">
+                        @foreach (var product in Model.Products.Where(x => x.IsBestSeller == true))
+                        {
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="single-product mt-30">
+                                    <div class="product-image">
+                                        <a href="single-product.html">
+                                            <img class="first-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==true).FirstOrDefault().Url" alt="product">
+                                            <img class="second-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==false).FirstOrDefault().Url" alt="product">
+                                        </a>
+                                        <ul class="product-meta">
+                                            <li><a href="#"><i class="icon ion-bag"></i></a></li>
+                                            <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
+                                            <li><a href="#"><i class="icon ion-android-options"></i></a></li>
+                                            <li><a data-toggle="modal" data-target="#productQuickModal" href="#"><i class="icon ion-android-open"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="product-content">
+                                        <ul class="product-rating">
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                        </ul>
+                                        <h4 class="product-title"><a href="single-product.html">@product.Title</a></h4>
+                                        <div class="product-price">
+                                            <span class="price-sale">$@product.SalePrice</span>
+                                        </div>
+                                    </div>
+                                </div> <!-- single product -->
+                            </div>
+                        }
+                    </div> <!-- row -->
+                </div> <!-- product items -->
+            </div>
+            <div class="tab-pane fade" id="featured" role="tabpanel" aria-labelledby="featured-tab">
+                <div class="product-items">
+                    <div class="row product-active">
+                        @foreach (var product in Model.Products.Where(x => x.IsFeatured == true))
+                        {
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="single-product mt-30">
+                                    <div class="product-image">
+                                        <a href="single-product.html">
+                                            <img class="first-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==true).FirstOrDefault().Url" alt="product">
+                                            <img class="second-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==false).FirstOrDefault().Url" alt="product">
+                                        </a>
+                                        <ul class="product-meta">
+                                            <li><a href="#"><i class="icon ion-bag"></i></a></li>
+                                            <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
+                                            <li><a href="#"><i class="icon ion-android-options"></i></a></li>
+                                            <li><a data-toggle="modal" data-target="#productQuickModal" href="#"><i class="icon ion-android-open"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="product-content">
+                                        <ul class="product-rating">
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                        </ul>
+                                        <h4 class="product-title"><a href="single-product.html">@product.Title</a></h4>
+                                        <div class="product-price">
+                                            <span class="price-sale">$@product.SalePrice</span>
+                                        </div>
+                                    </div>
+                                </div> <!-- single product -->
+                            </div>
+                        }
+                    </div> <!-- row -->
+                </div> <!-- product items -->
+            </div>
+        </div> <!-- tab content -->
+    </div> <!-- container -->
+</section>
+
+<!--====== Product Part Ends ======-->
+<!--====== Banner Part Start ======-->
+
+<div class="banner-area pt-70">
+    <div class="container-fluid custom-container">
+        <div class="row">
+            @foreach (var banner in Model.Banners.Take(2))
+            {
+                <div class="col-md-6">
+                    <div class="banner-image banner-2">
+                        <a href="@banner.RedirectUrl"><img src="~/uploads/banners/@banner.ImageUrl" alt="banner"></a>
+                    </div> <!-- banner image -->
+                </div>
+            }
+        </div>
+    </div> <!-- row -->
+</div> <!-- container -->
+<!--====== Banner Part Ends ======-->
+<!--====== Product Part Start ======-->
+<section class="product-area pt-100">
+    <div class="container-fluid custom-container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="product-menu pb-30">
+                    <ul class="nav justify-content-center" role="tablist">
+                        @foreach (var category in Model.Categories)
+                        {
+                        <li class="nav-item" role="presentation">
+                            <a id="new-tab" data-toggle="tab" href="#new" role="tab" aria-controls="new" aria-selected="true">@category.Name</a>
+                        </li>
+                            
+                        }
+                    </ul>
+                </div> <!-- product menu -->
+            </div>
+        </div> <!-- row -->
+        <div class="tab-content">
+            @foreach (var category in Model.Categories)
+            {
+                <div class="tab-pane fade" id="category-@category.Id" role="tabpanel" aria-labelledby="category-@category.Id-tab">
+                    <div class="product-items" id="category-@category.Id-products">
+                        @foreach (var product in Model.Products.Where(p => p.CategoryId == category.Id))
+                        {
                             <div class="single-product mt-30">
                                 <div class="product-image">
                                     <a href="single-product.html">
-                                        <img class="first-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==true).FirstOrDefault().Url" alt="product">
-                                        <img class="second-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==false).FirstOrDefault().Url" alt="product">
+                                        <img class="first-image" src="~/uploads/products/@product.ProductImages.Where(p => p.IsPoster==true).FirstOrDefault().Url" alt="product">
+                                        <img class="second-image" src="~/uploads/products/@product.ProductImages.Where(p => p.IsPoster==false).FirstOrDefault().Url" alt="product">
                                     </a>
                                     <ul class="product-meta">
                                         <li><a href="#"><i class="icon ion-bag"></i></a></li>
@@ -145,245 +303,10 @@
                                     </div>
                                 </div>
                             </div> <!-- single product -->
-                            }
-                        </div>
-                    </div> <!-- row -->
-                </div> <!-- product items -->
-            </div>
-            <div class="tab-pane fade" id="bestseller" role="tabpanel" aria-labelledby="bestseller-tab">
-                <div class="product-items">
-                    <div class="row product-active">
-                        <div class="col">
-                            @foreach (var product in Model.Products.Where(x => x.IsBestSeller == true))
-                            {
-                                <div class="single-product mt-30">
-                                    <div class="product-image">
-                                        <a href="single-product.html">
-                                            <img class="first-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==true).FirstOrDefault().Url" alt="product">
-                                            <img class="second-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==false).FirstOrDefault().Url" alt="product">
-                                        </a>
-                                        <ul class="product-meta">
-                                            <li><a href="#"><i class="icon ion-bag"></i></a></li>
-                                            <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
-                                            <li><a href="#"><i class="icon ion-android-options"></i></a></li>
-                                            <li><a data-toggle="modal" data-target="#productQuickModal" href="#"><i class="icon ion-android-open"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product-content">
-                                        <ul class="product-rating">
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                        </ul>
-                                        <h4 class="product-title"><a href="single-product.html">@product.Title</a></h4>
-                                        <div class="product-price">
-                                            <span class="price-sale">$@product.SalePrice</span>
-                                        </div>
-                                    </div>
-                                </div> <!-- single product -->
-                            }
-                        </div>
-                    </div> <!-- row -->
-                </div> <!-- product items -->
-            </div>
-            <div class="tab-pane fade" id="featured" role="tabpanel" aria-labelledby="featured-tab">
-                <div class="product-items">
-                    <div class="row product-active">
-                        <div class="col">
-                            @foreach (var product in Model.Products.Where(x => x.IsFeatured == true))
-                            {
-                                <div class="single-product mt-30">
-                                    <div class="product-image">
-                                        <a href="single-product.html">
-                                            <img class="first-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==true).FirstOrDefault().Url" alt="product">
-                                            <img class="second-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==false).FirstOrDefault().Url" alt="product">
-                                        </a>
-                                        <ul class="product-meta">
-                                            <li><a href="#"><i class="icon ion-bag"></i></a></li>
-                                            <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
-                                            <li><a href="#"><i class="icon ion-android-options"></i></a></li>
-                                            <li><a data-toggle="modal" data-target="#productQuickModal" href="#"><i class="icon ion-android-open"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product-content">
-                                        <ul class="product-rating">
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                        </ul>
-                                        <h4 class="product-title"><a href="single-product.html">@product.Title</a></h4>
-                                        <div class="product-price">
-                                            <span class="price-sale">$@product.SalePrice</span>
-                                        </div>
-                                    </div>
-                                </div> <!-- single product -->
-                            }
-                        </div>
-                    </div> <!-- row -->
-                </div> <!-- product items -->
-            </div>
-        </div> <!-- tab content -->
-    </div> <!-- container -->
-</section>
-
-<!--====== Product Part Ends ======-->
-<!--====== Banner Part Start ======-->
-
-<div class="banner-area pt-70">
-    <div class="container-fluid custom-container">
-        <div class="row">
-            @foreach(var banner in Model.Banners.Take(2)){
-            <div class="col-md-6">
-                <div class="banner-image banner-2">
-                    <a href="@banner.RedirectUrl"><img src="~/uploads/banners/@banner.ImageUrl" alt="banner"></a>
-                </div> <!-- banner image -->
-            </div>
+                        }
+                    </div> <!-- product items -->
+                </div>
             }
-        </div>
-    </div> <!-- row -->
-      </div> <!-- container -->
-
-<!--====== Banner Part Ends ======-->
-<!--====== Product Part Start ======-->
-
-<section class="product-area pt-100">
-    <div class="container-fluid custom-container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="product-menu pb-30">
-                    <ul class="nav justify-content-center" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <a class="active" id="new-tab" data-toggle="tab" href="#new" role="tab" aria-controls="new" aria-selected="true">New Arrival</a>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <a id="bestseller-tab" data-toggle="tab" href="#bestseller" role="tab" aria-controls="bestseller" aria-selected="false">Bestseller</a>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <a id="featured-tab" data-toggle="tab" href="#featured" role="tab" aria-controls="featured" aria-selected="false">Featured</a>
-                        </li>
-                    </ul>
-                </div> <!-- product menu -->
-            </div>
-        </div> <!-- row -->
-        <div class="tab-content">
-            <div class="tab-pane fade show active" id="new" role="tabpanel" aria-labelledby="new-tab">
-                <div class="product-items">
-                    <div class="row product-active">
-                        <div class="col">
-                            @foreach (var product in Model.Products.Where(x => x.IsNew == true))
-                            {
-                                <div class="single-product mt-30">
-                                    <div class="product-image">
-                                        <a href="single-product.html">
-                                            <img class="first-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==true).FirstOrDefault().Url" alt="product">
-                                            <img class="second-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==false).FirstOrDefault().Url" alt="product">
-                                        </a>
-                                        <ul class="product-meta">
-                                            <li><a href="#"><i class="icon ion-bag"></i></a></li>
-                                            <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
-                                            <li><a href="#"><i class="icon ion-android-options"></i></a></li>
-                                            <li><a data-toggle="modal" data-target="#productQuickModal" href="#"><i class="icon ion-android-open"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product-content">
-                                        <ul class="product-rating">
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                        </ul>
-                                        <h4 class="product-title"><a href="single-product.html">@product.Title</a></h4>
-                                        <div class="product-price">
-                                            <span class="price-sale">$@product.SalePrice</span>
-                                        </div>
-                                    </div>
-                                </div> <!-- single product -->
-                            }
-                        </div>
-                    </div> <!-- row -->
-                </div> <!-- product items -->
-            </div>
-            <div class="tab-pane fade" id="bestseller" role="tabpanel" aria-labelledby="bestseller-tab">
-                <div class="product-items">
-                    <div class="row product-active">
-                        <div class="col">
-                            @foreach (var product in Model.Products.Where(x => x.IsBestSeller == true))
-                            {
-                                <div class="single-product mt-30">
-                                    <div class="product-image">
-                                        <a href="single-product.html">
-                                            <img class="first-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==true).FirstOrDefault().Url" alt="product">
-                                            <img class="second-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==false).FirstOrDefault().Url" alt="product">
-                                        </a>
-                                        <ul class="product-meta">
-                                            <li><a href="#"><i class="icon ion-bag"></i></a></li>
-                                            <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
-                                            <li><a href="#"><i class="icon ion-android-options"></i></a></li>
-                                            <li><a data-toggle="modal" data-target="#productQuickModal" href="#"><i class="icon ion-android-open"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product-content">
-                                        <ul class="product-rating">
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                        </ul>
-                                        <h4 class="product-title"><a href="single-product.html">@product.Title</a></h4>
-                                        <div class="product-price">
-                                            <span class="price-sale">$@product.SalePrice</span>
-                                        </div>
-                                    </div>
-                                </div> <!-- single product -->
-                            }
-                        </div>
-                    </div> <!-- row -->
-                </div> <!-- product items -->
-            </div>
-            <div class="tab-pane fade" id="featured" role="tabpanel" aria-labelledby="featured-tab">
-                <div class="product-items">
-                    <div class="row product-active">
-                        <div class="col">
-                            @foreach (var product in Model.Products.Where(x => x.IsFeatured == true))
-                            {
-                                <div class="single-product mt-30">
-                                    <div class="product-image">
-                                        <a href="single-product.html">
-                                            <img class="first-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==true).FirstOrDefault().Url" alt="product">
-                                            <img class="second-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==false).FirstOrDefault().Url" alt="product">
-                                        </a>
-                                        <ul class="product-meta">
-                                            <li><a href="#"><i class="icon ion-bag"></i></a></li>
-                                            <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
-                                            <li><a href="#"><i class="icon ion-android-options"></i></a></li>
-                                            <li><a data-toggle="modal" data-target="#productQuickModal" href="#"><i class="icon ion-android-open"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product-content">
-                                        <ul class="product-rating">
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                        </ul>
-                                        <h4 class="product-title"><a href="single-product.html">@product.Title</a></h4>
-                                        <div class="product-price">
-                                            <span class="price-sale">$@product.SalePrice</span>
-                                        </div>
-                                    </div>
-                                </div> <!-- single product -->
-                            }
-                        </div>
-                    </div> <!-- row -->
-                </div> <!-- product items -->
-            </div>
         </div> <!-- tab content -->
     </div> <!-- container -->
 </section>
@@ -650,5 +573,4 @@
 </section>
 
 <!--====== Blog Part Ends ======-->
-
 
