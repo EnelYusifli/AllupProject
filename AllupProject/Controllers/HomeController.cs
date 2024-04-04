@@ -17,9 +17,13 @@ public class HomeController : Controller
     {
         HomeViewModel homeViewModel = new HomeViewModel()
         {
-            Sliders = await _context.Sliders.ToListAsync(),
-            Banners = await _context.Banners.ToListAsync()
+            Sliders = await _context.Sliders.Where(x=>x.IsDeactive==false).ToListAsync(),
+            Banners = await _context.Banners.Where(x => x.IsDeactive == false).ToListAsync(),
+            Categories = await _context.Categories.Where(x => x.IsDeactive == false).ToListAsync(),
+            Products = await _context.Products.Where(x => x.IsDeactive == false).Include(x=>x.ProductImages).Include(x=>x.Category).ToListAsync()
         };
         return View(homeViewModel);
     }
+
+
 }

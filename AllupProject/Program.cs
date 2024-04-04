@@ -11,18 +11,18 @@ builder.Services.AddDbContext<AllupDbContext>(opt =>
 });
 
 builder.Services.AddServices();
-//builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
-//{
-//    opt.Password.RequireNonAlphanumeric = true;
-//    opt.Password.RequiredLength = 8;
-//    opt.Password.RequireUppercase = true;
-//    opt.Password.RequireLowercase = true;
-//    opt.User.RequireUniqueEmail = true;
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(opt =>
+{
+    opt.Password.RequireNonAlphanumeric = true;
+    opt.Password.RequiredLength = 8;
+    opt.Password.RequireUppercase = true;
+    opt.Password.RequireLowercase = true;
+    opt.User.RequireUniqueEmail = true;
 
-//}
-//)
-//    .AddEntityFrameworkStores<PustokDbContext>()
-//    .AddDefaultTokenProviders();
+}
+)
+    .AddEntityFrameworkStores<AllupDbContext>()
+    .AddDefaultTokenProviders();
 
 
 var app = builder.Build();
