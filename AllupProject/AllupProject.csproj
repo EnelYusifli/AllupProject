@@ -9,6 +9,7 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\ViewModels\" />
     <Folder Include="wwwroot\uploads\banners\" />
+    <Folder Include="wwwroot\uploads\products\" />
     <Folder Include="wwwroot\uploads\sliders\" />
   </ItemGroup>
 

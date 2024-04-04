@@ -1,0 +1,89 @@
+﻿@model Product
+@{
+    List<Category> categories = ViewBag.Categories;
+}
+<div class="container-fluid">
+    <h1>Create</h1>
+    <form method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="Title" class="form-label">Title</label>
+            <input asp-for="Title" class="form-control">
+            <span asp-validation-for="Title" style="color:red"></span>
+        </div>
+        <div class="mb-3">
+            <label for="Desc" class="form-label">Desc</label>
+            <input asp-for="Desc" class="form-control">
+            <span asp-validation-for="Desc" style="color:red"></span>
+        </div>
+        <label for="Category" class="form-label">Category</label>
+        <select asp-for="CategoryId" asp-items="@(new SelectList(categories,"Id","Name"))">Categories</select>
+        <div class="mb-3">
+            <label for="ProductCode" class="form-label">ProductCode</label>
+            <input asp-for="ProductCode" class="form-control">
+            <span asp-validation-for="ProductCode" style="color:red"></span>
+        </div>
+        <div class="mb-3">
+            <label for="CostPrice" class="form-label">CostPrice</label>
+            <input asp-for="CostPrice" class="form-control">
+            <span asp-validation-for="CostPrice" style="color:red"></span>
+        </div>
+        <div class="mb-3">
+            <label for="SalePrice" class="form-label">SalePrice</label>
+            <input asp-for="SalePrice" class="form-control">
+            <span asp-validation-for="SalePrice" style="color:red"></span>
+        </div>
+        <div class="mb-3">
+            <label for="DiscountPercent" class="form-label">DiscountPercent</label>
+            <input asp-for="DiscountPercent" class="form-control">
+            <span asp-validation-for="DiscountPercent" style="color:red"></span>
+        </div>
+        <div class="mb-3">
+            <label for="StockCount" class="form-label">StockCount</label>
+            <input asp-for="StockCount" class="form-control">
+            <span asp-validation-for="StockCount" style="color:red"></span>
+        </div> 
+        <div class="mb-3">
+            <label for="IsFeatured" class="form-label">IsFeatured</label>
+            <input asp-for="IsFeatured" class="form">
+            <span asp-validation-for="IsFeatured" style="color:red"></span>
+        </div> 
+        <div class="mb-3">
+            <label for="IsNew" class="form-label">IsNew</label>
+            <input asp-for="IsNew" class="form">
+            <span asp-validation-for="IsNew" style="color:red"></span>
+        </div> 
+        <div class="mb-3">
+            <label for="IsBestSeller" class="form-label">IsBestSeller</label>
+            <input asp-for="IsBestSeller" class="form">
+            <span asp-validation-for="IsBestSeller" style="color:red"></span>
+        </div>
+        <div class="mb-3">
+            <label for="IsInStock" class="form-label">IsInStock</label>
+            <input asp-for="IsInStock" class="form">
+            <span asp-validation-for="IsInStock" style="color:red"></span>
+        </div>
+        <div class="mb-3">
+            <label for="IsDeactive" class="form-label">IsDeactive</label>
+            <input asp-for="IsDeactive" class="form">
+            <span asp-validation-for="IsDeactive" style="color:red"></span>
+        </div>
+        <div class="mb-3">
+            <label for="PosterImgFile" class="form-label">PosterImgFile</label><br>
+            <input asp-for="PosterImgFile" class="form"><br>
+            <span asp-validation-for="PosterImgFile" style="color:red"></span>
+        </div>
+        <div class="mb-3">
+            <label for="HoverImgFile" class="form-label">HoverImgFile</label><br>
+            <input asp-for="HoverImgFile" class="form"><br>
+            <span asp-validation-for="HoverImgFile" style="color:red"></span>
+        </div>
+        <div class="mb-3">
+            <label for="DetailImgFiles" class="form-label">DetailImgFiles</label><br>
+            <input asp-for="DetailImgFiles" class="form"><br>
+            <span asp-validation-for="DetailImgFiles" style="color:red"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+</div>
+
+

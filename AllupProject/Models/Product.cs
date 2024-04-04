@@ -15,7 +15,6 @@ public class Product:BaseEntity
     public double CostPrice { get; set; }
     public double SalePrice { get; set; }
     public double DiscountPercent { get; set; }
-    public double Price { get; set; }
     public int StockCount { get; set; }
     public bool IsFeatured { get; set; }
     public bool IsNew { get; set; }
