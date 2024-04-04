@@ -80,6 +80,7 @@ public class CategoryService : ICategoryService
             throw new NameAlreadyExistException("Name", "Category name is already exist!");
 
         existData.Name = category.Name;
+        existData.IsDeactive = category.IsDeactive;
         await _context.SaveChangesAsync();
     }
 

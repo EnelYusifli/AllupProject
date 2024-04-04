@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                @foreach(var banner in Model.Banners){
+                @foreach(var banner in Model.Banners.Take(2)){
                 <div class="slider-banner mt-30">
                     <a href="@banner.RedirectUrl"><img src="~/uploads/banners/@banner.ImageUrl" alt="banner"></a>
                 </div> <!-- slider banner -->
@@ -236,7 +236,7 @@
 <div class="banner-area pt-70">
     <div class="container-fluid custom-container">
         <div class="row">
-            @foreach(var banner in Model.Banners){
+            @foreach(var banner in Model.Banners.Take(2)){
             <div class="col-md-6">
                 <div class="banner-image banner-2">
                     <a href="@banner.RedirectUrl"><img src="~/uploads/banners/@banner.ImageUrl" alt="banner"></a>

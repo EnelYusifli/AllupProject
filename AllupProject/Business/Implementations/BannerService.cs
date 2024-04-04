@@ -88,6 +88,7 @@ public class BannerService:IBannerService
         }
         sld.ModifiedDate = DateTime.UtcNow.AddHours(4);
         sld.RedirectUrl = banner.RedirectUrl;
+        sld.IsDeactive = banner.IsDeactive;
         await _context.SaveChangesAsync();
     }
 }

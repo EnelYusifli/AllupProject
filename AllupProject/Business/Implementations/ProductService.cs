@@ -149,6 +149,7 @@ public class ProductService : IProductService
         existProduct.IsNew = product.IsNew;
         existProduct.IsBestSeller = product.IsBestSeller;
         existProduct.IsInStock = product.IsInStock;
+        existProduct.IsDeactive = product.IsDeactive;
         existProduct.CategoryId = product.CategoryId;
 
         if (product.HoverImgFile is not null)
