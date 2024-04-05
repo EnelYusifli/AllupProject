@@ -7,6 +7,7 @@ using AllupProject.DAL;
 using AllupProject.Extensions;
 using AllupProject.Models;
 using System.Net;
+using AllupProject.Helpers;
 
 namespace AllupProject.Areas.Admin.Controllers;
 
@@ -21,10 +22,11 @@ public class ProductController : Controller
         _productService = productService;
         _context = context;
     }
-    public async Task<IActionResult> Index()
+    public IActionResult Index(int page)
     {
-        List<Product> Products = await _productService.GetAllAsync();
-        return View(Products);
+        var products =  _productService.GetAllAsQueryableAsync();
+        var paginatedDatas = PaginatedList<Product>.Create(products, 5, page);
+        return View(paginatedDatas);
     }
     public IActionResult Create()
     {

@@ -54,7 +54,15 @@ public class BannerService:IBannerService
                 ? await query.Where(expression).ToListAsync()
                 : await query.ToListAsync();
     }
+    public IQueryable<Banner> GetAllAsQueryableAsync(Expression<Func<Banner, bool>>? expression = null)
+    {
+        var query = _context.Banners
+            .AsQueryable();
 
+        return expression is not null
+                ? query.Where(expression).AsQueryable()
+                : query.AsQueryable();
+    }
     public async Task<Banner> GetByIdAsync(int id)
     {
         var data = await _context.Banners.FindAsync(id);

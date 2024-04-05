@@ -44,7 +44,15 @@ public class CategoryService : ICategoryService
                 ? await query.Where(expression).ToListAsync() 
                 : await query.ToListAsync(); 
     }
+    public IQueryable<Category> GetAllAsQueryableAsync(Expression<Func<Category, bool>>? expression = null)
+    {
+        var query = _context.Categories
+            .AsQueryable();
 
+        return expression is not null
+                ? query.Where(expression).AsQueryable()
+                : query.AsQueryable();
+    }
     public async Task<Category> GetByIdAsync(int id)
     {
         var data = await _context.Categories.FindAsync(id);

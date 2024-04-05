@@ -28,4 +28,5 @@ public class HomeController : Controller
     public IActionResult About() => View();
     public IActionResult Blog() => View();
     public IActionResult Contact() => View();
+    public IActionResult Detail() => PartialView("_ProductDetailPartial");
 }

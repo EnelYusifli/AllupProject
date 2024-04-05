@@ -1,5 +1,7 @@
-﻿using AllupProject.Business.Interfaces;
+﻿using AllupProject.Business.Implementations;
+using AllupProject.Business.Interfaces;
 using AllupProject.CustomExceptions.Common;
+using AllupProject.Helpers;
 using AllupProject.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,10 +16,11 @@ public class BannerController : Controller
     {
         _bannerService = bannerService;
     }
-    public async Task<IActionResult> Index()
+    public IActionResult Index(int page)
     {
-        List<Banner> banners = await _bannerService.GetAllAsync();
-        return View(banners);
+        var banners = _bannerService.GetAllAsQueryableAsync();
+        var paginatedDatas = PaginatedList<Banner>.Create(banners, 5, page);
+        return View(paginatedDatas);
     }
     public IActionResult Create()
     {

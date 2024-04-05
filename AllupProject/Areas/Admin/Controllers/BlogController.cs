@@ -1,5 +1,7 @@
-﻿using AllupProject.Business.Interfaces;
+﻿using AllupProject.Business.Implementations;
+using AllupProject.Business.Interfaces;
 using AllupProject.CustomExceptions.Common;
+using AllupProject.Helpers;
 using AllupProject.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,10 +15,11 @@ public class BlogController : Controller
     {
         _blogService = blogService;
     }
-    public async Task<IActionResult> Index()
+    public IActionResult Index(int page)
     {
-        List<Blog> Blogs = await _blogService.GetAllAsync();
-        return View(Blogs);
+        var blogs = _blogService.GetAllAsQueryableAsync();
+        var paginatedDatas = PaginatedList<Blog>.Create(blogs, 5, page);
+        return View(paginatedDatas);
     }
     public IActionResult Create()
     {

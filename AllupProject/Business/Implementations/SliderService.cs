@@ -54,7 +54,15 @@ public class SliderService : ISliderService
                 ? await query.Where(expression).ToListAsync()
                 : await query.ToListAsync();
     }
+    public IQueryable<Slider> GetAllAsQueryableAsync(Expression<Func<Slider, bool>>? expression = null)
+    {
+        var query = _context.Sliders
+            .AsQueryable();
 
+        return expression is not null
+                ? query.Where(expression).AsQueryable()
+                : query.AsQueryable();
+    }
     public async Task<Slider> GetByIdAsync(int id)
     {
         var data = await _context.Sliders.FindAsync(id);

@@ -93,7 +93,17 @@ public class ProductService : IProductService
                 ? await query.Where(expression).ToListAsync()
                 : await query.ToListAsync();
     }
+    public  IQueryable<Product> GetAllAsQueryableAsync(Expression<Func<Product, bool>>? expression = null)
+    {
+        var query = _context.Products
+            .Include(x => x.Category)
+            .Include(x => x.ProductImages)
+            .AsQueryable();
 
+        return expression is not null
+                ?  query.Where(expression).AsQueryable()
+                :  query.AsQueryable();
+    }
     public async Task<Product> GetByIdAsync(int id)
     {
         var data = await _context.Products

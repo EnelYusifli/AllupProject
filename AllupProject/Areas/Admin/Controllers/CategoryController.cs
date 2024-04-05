@@ -1,5 +1,7 @@
-﻿using AllupProject.Business.Interfaces;
+﻿using AllupProject.Business.Implementations;
+using AllupProject.Business.Interfaces;
 using AllupProject.CustomExceptions.Common;
+using AllupProject.Helpers;
 using AllupProject.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -16,8 +18,12 @@ public class CategoryController : Controller
         _categoryService = categoryService;
     }
 
-    public async Task<IActionResult> Index()
-        => View(await _categoryService.GetAllAsync(x => x.IsDeactive == false, "Products"));
+    public IActionResult Index(int page)
+    {
+        var categories = _categoryService.GetAllAsQueryableAsync();
+        var paginatedDatas = PaginatedList<Category>.Create(categories, 5, page);
+        return View(paginatedDatas);
+    }
     public IActionResult Create()
         => View();
 

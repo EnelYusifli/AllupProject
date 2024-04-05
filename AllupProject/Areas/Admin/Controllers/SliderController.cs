@@ -1,5 +1,7 @@
-﻿using AllupProject.Business.Interfaces;
+﻿using AllupProject.Business.Implementations;
+using AllupProject.Business.Interfaces;
 using AllupProject.CustomExceptions.Common;
+using AllupProject.Helpers;
 using AllupProject.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,10 +16,11 @@ public class SliderController : Controller
     {
         _sliderService = sliderService;
     }
-    public async Task<IActionResult> Index()
+    public IActionResult Index(int page)
     {
-        List<Slider> Sliders = await _sliderService.GetAllAsync();
-        return View(Sliders);
+        var sliders = _sliderService.GetAllAsQueryableAsync();
+        var paginatedDatas = PaginatedList<Slider>.Create(sliders, 5, page);
+        return View(paginatedDatas);
     }
     public IActionResult Create()
     {

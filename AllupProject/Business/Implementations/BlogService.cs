@@ -54,7 +54,15 @@ public class BlogService:IBlogService
                 ? await query.Where(expression).ToListAsync()
                 : await query.ToListAsync();
     }
+    public IQueryable<Blog> GetAllAsQueryableAsync(Expression<Func<Blog, bool>>? expression = null)
+    {
+        var query = _context.Blogs
+            .AsQueryable();
 
+        return expression is not null
+                ? query.Where(expression).AsQueryable()
+                : query.AsQueryable();
+    }
     public async Task<Blog> GetByIdAsync(int id)
     {
         var data = await _context.Blogs.FindAsync(id);
