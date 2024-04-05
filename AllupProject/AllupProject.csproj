@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\uploads\banners\" />
+    <Folder Include="wwwroot\uploads\blogs\" />
     <Folder Include="wwwroot\uploads\products\" />
     <Folder Include="wwwroot\uploads\sliders\" />
   </ItemGroup>

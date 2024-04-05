@@ -126,6 +126,10 @@
                                             <img class="first-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==true).FirstOrDefault().Url" alt="product">
                                             <img class="second-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==false).FirstOrDefault().Url" alt="product">
                                         </a>
+                                        @if (@product.DiscountPercent > 0)
+                                        {
+                                            <span class="discount-product">-@product.DiscountPercent%</span>
+                                        }
                                         <ul class="product-meta">
                                             <li><a href="#"><i class="icon ion-bag"></i></a></li>
                                             <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
@@ -165,6 +169,10 @@
                                             <img class="first-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==true).FirstOrDefault().Url" alt="product">
                                             <img class="second-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==false).FirstOrDefault().Url" alt="product">
                                         </a>
+                                        @if (@product.DiscountPercent > 0)
+                                        {
+                                            <span class="discount-product">-@product.DiscountPercent%</span>
+                                        }
                                         <ul class="product-meta">
                                             <li><a href="#"><i class="icon ion-bag"></i></a></li>
                                             <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
@@ -203,6 +211,11 @@
                                             <img class="first-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==true).FirstOrDefault().Url" alt="product">
                                             <img class="second-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==false).FirstOrDefault().Url" alt="product">
                                         </a>
+                                        @if (@product.DiscountPercent > 0)
+                                        {
+                                            <span class="discount-product">-@product.DiscountPercent%</span>
+                                        }
+
                                         <ul class="product-meta">
                                             <li><a href="#"><i class="icon ion-bag"></i></a></li>
                                             <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
@@ -508,65 +521,23 @@
             </div>
         </div> <!-- row -->
         <div class="row blog-active">
+            @foreach(var blog in Model.Blogs)
+            {
             <div class="col-lg-4">
                 <div class="single-blog">
                     <div class="blag-image">
-                        <a href="blog-single-left-sidebar.html"><img src="~/assets/images/blog-1.jpg" alt="Blog"></a>
+                        <a asp-action="blog" asp-controller="home"><img src="~/uploads/blogs/@blog.ImageUrl" alt="Blog"></a>
                         <p class="meta-date">
-                            <span class="day">05</span>
-                            <span class="month">Dec</span>
+                            <span class="day">@blog.Date</span>
                         </p>
                     </div>
                     <div class="blag-content">
-                        <h2 class="blog-title"><a href="blog-single-left-sidebar.html">This is Third Post For XipBlog</a></h2>
-                        <p>simply dummy text of the printing and typesetting industry. Lorem Ipsum ...</p>
+                        <h2 class="blog-title"><a href="blog-single-left-sidebar.html">@blog.Title</a></h2>
+                        <p>@blog.Desc</p>
                     </div>
                 </div> <!-- single blog -->
             </div>
-            <div class="col-lg-4">
-                <div class="single-blog">
-                    <div class="blag-image">
-                        <a href="blog-single-left-sidebar.html"><img src="~/assets/images/blog-2.jpg" alt="Blog"></a>
-                        <p class="meta-date">
-                            <span class="day">05</span>
-                            <span class="month">Dec</span>
-                        </p>
-                    </div>
-                    <div class="blag-content">
-                        <h2 class="blog-title"><a href="blog-single-left-sidebar.html">This is Third Post For XipBlog</a></h2>
-                        <p>simply dummy text of the printing and typesetting industry. Lorem Ipsum ...</p>
-                    </div>
-                </div> <!-- single blog -->
-            </div>
-            <div class="col-lg-4">
-                <div class="single-blog">
-                    <div class="blag-image">
-                        <a href="blog-single-left-sidebar.html"><img src="~/assets/images/blog-3.jpg" alt="Blog"></a>
-                        <p class="meta-date">
-                            <span class="day">05</span>
-                            <span class="month">Dec</span>
-                        </p>
-                    </div>
-                    <div class="blag-content">
-                        <h2 class="blog-title"><a href="blog-single-left-sidebar.html">This is Third Post For XipBlog</a></h2>
-                        <p>simply dummy text of the printing and typesetting industry. Lorem Ipsum ...</p>
-                    </div>
-                </div> <!-- single blog -->
-            </div>
-            <div class="col-lg-4">
-                <div class="single-blog">
-                    <div class="blag-image">
-                        <a href="blog-single-left-sidebar.html"><img src="~/assets/images/blog-4.jpg" alt="Blog"></a>
-                        <p class="meta-date">
-                            <span class="day">05</span>
-                            <span class="month">Dec</span>
-                        </p>
-                    </div>
-                    <div class="blag-content">
-                        <h2 class="blog-title"><a href="blog-single-left-sidebar.html">This is Third Post For XipBlog</a></h2>
-                        <p>simply dummy text of the printing and typesetting industry. Lorem Ipsum ...</p>
-                    </div>
-                </div> <!-- single blog -->
+            }
             </div>
         </div> <!-- row -->
     </div> <!-- container -->
