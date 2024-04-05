@@ -117,42 +117,7 @@
             <div class="tab-pane fade show active" id="new" role="tabpanel" aria-labelledby="new-tab">
                 <div class="product-items">
                     <div class="row product-active">
-                        @foreach (var product in Model.Products.Where(x => x.IsNew == true))
-                        {
-                            <div class="col-lg-3 col-md-6 col-sm-6">
-                                <div class="single-product mt-30">
-                                    <div class="product-image">
-                                        <a href="single-product.html">
-                                            <img class="first-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==true).FirstOrDefault().Url" alt="product">
-                                            <img class="second-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==false).FirstOrDefault().Url" alt="product">
-                                        </a>
-                                        @if (@product.DiscountPercent > 0)
-                                        {
-                                            <span class="discount-product">-@product.DiscountPercent%</span>
-                                        }
-                                        <ul class="product-meta">
-                                            <li><a href="#"><i class="icon ion-bag"></i></a></li>
-                                            <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
-                                            <li><a href="#"><i class="icon ion-android-options"></i></a></li>
-                                            <li><a data-toggle="modal" data-target="#productQuickModal" href="#"><i class="icon ion-android-open"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product-content">
-                                        <ul class="product-rating">
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                        </ul>
-                                        <h4 class="product-title"><a href="single-product.html">@product.Title</a></h4>
-                                        <div class="product-price">
-                                            <span class="price-sale">$@product.SalePrice</span>
-                                        </div>
-                                    </div>
-                                </div> <!-- single product -->
-                            </div>
-                        }
+                        @await Html.PartialAsync("_ProductListlPartial", Model.Products.Where(x => x.IsNew == true).ToList())
                     </div> <!-- row -->
 
                 </div> <!-- product items -->
@@ -160,85 +125,16 @@
             <div class="tab-pane fade" id="bestseller" role="tabpanel" aria-labelledby="bestseller-tab">
                 <div class="product-items">
                     <div class="row product-active">
-                        @foreach (var product in Model.Products.Where(x => x.IsBestSeller == true))
-                        {
-                            <div class="col-lg-3 col-md-6 col-sm-6">
-                                <div class="single-product mt-30">
-                                    <div class="product-image">
-                                        <a href="single-product.html">
-                                            <img class="first-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==true).FirstOrDefault().Url" alt="product">
-                                            <img class="second-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==false).FirstOrDefault().Url" alt="product">
-                                        </a>
-                                        @if (@product.DiscountPercent > 0)
-                                        {
-                                            <span class="discount-product">-@product.DiscountPercent%</span>
-                                        }
-                                        <ul class="product-meta">
-                                            <li><a href="#"><i class="icon ion-bag"></i></a></li>
-                                            <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
-                                            <li><a href="#"><i class="icon ion-android-options"></i></a></li>
-                                            <li><a data-toggle="modal" data-target="#productQuickModal" href="#"><i class="icon ion-android-open"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product-content">
-                                        <ul class="product-rating">
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                        </ul>
-                                        <h4 class="product-title"><a href="single-product.html">@product.Title</a></h4>
-                                        <div class="product-price">
-                                            <span class="price-sale">$@product.SalePrice</span>
-                                        </div>
-                                    </div>
-                                </div> <!-- single product -->
-                            </div>
-                        }
+                        @await Html.PartialAsync("_ProductListlPartial", Model.Products.Where(x => x.IsBestSeller == true).ToList())
+
                     </div> <!-- row -->
                 </div> <!-- product items -->
             </div>
             <div class="tab-pane fade" id="featured" role="tabpanel" aria-labelledby="featured-tab">
                 <div class="product-items">
                     <div class="row product-active">
-                        @foreach (var product in Model.Products.Where(x => x.IsFeatured == true))
-                        {
-                            <div class="col-lg-3 col-md-6 col-sm-6">
-                                <div class="single-product mt-30">
-                                    <div class="product-image">
-                                        <a href="single-product.html">
-                                            <img class="first-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==true).FirstOrDefault().Url" alt="product">
-                                            <img class="second-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==false).FirstOrDefault().Url" alt="product">
-                                        </a>
-                                        @if (@product.DiscountPercent > 0)
-                                        {
-                                            <span class="discount-product">-@product.DiscountPercent%</span>
-                                        }
+                        @await Html.PartialAsync("_ProductListlPartial", Model.Products.Where(x => x.IsFeatured == true).ToList())
 
-                                        <ul class="product-meta">
-                                            <li><a href="#"><i class="icon ion-bag"></i></a></li>
-                                            <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
-                                            <li><a href="#"><i class="icon ion-android-options"></i></a></li>
-                                            <li><a data-toggle="modal" data-target="#productQuickModal" href="#"><i class="icon ion-android-open"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product-content">
-                                        <ul class="product-rating">
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                        </ul>
-                                        <h4 class="product-title"><a href="single-product.html">@product.Title</a></h4>
-                                        <div class="product-price">
-                                            <span class="price-sale">$@product.SalePrice</span>
-                                        </div>
-                                    </div>
-                                </div> <!-- single product -->
-                            </div>
-                        }
                     </div> <!-- row -->
                 </div> <!-- product items -->
             </div>
@@ -266,64 +162,55 @@
 <!--====== Banner Part Ends ======-->
 <!--====== Product Part Start ======-->
 <section class="product-area pt-100">
+    @{
+        Category[] categories = Model.Categories.Take(3).ToArray();
+    }
     <div class="container-fluid custom-container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="product-menu pb-30">
                     <ul class="nav justify-content-center" role="tablist">
-                        @foreach (var category in Model.Categories)
-                        {
                         <li class="nav-item" role="presentation">
-                            <a id="new-tab" data-toggle="tab" href="#new" role="tab" aria-controls="new" aria-selected="true">@category.Name</a>
+                            <a class="active" id="computer-tab" data-toggle="tab" href="#computer" role="tab" aria-controls="computer" aria-selected="true">@categories[0].Name</a>
                         </li>
-                            
-                        }
+                        <li class="nav-item" role="presentation">
+                            <a id="smartphone-tab" data-toggle="tab" href="#smartphone" role="tab" aria-controls="smartphone" aria-selected="false">@categories[1].Name</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a id="game-tab" data-toggle="tab" href="#game" role="tab" aria-controls="game" aria-selected="false">@categories[2].Name</a>
+                        </li>
                     </ul>
                 </div> <!-- product menu -->
             </div>
         </div> <!-- row -->
         <div class="tab-content">
-            @foreach (var category in Model.Categories)
-            {
-                <div class="tab-pane fade" id="category-@category.Id" role="tabpanel" aria-labelledby="category-@category.Id-tab">
-                    <div class="product-items" id="category-@category.Id-products">
-                        @foreach (var product in Model.Products.Where(p => p.CategoryId == category.Id))
-                        {
-                            <div class="single-product mt-30">
-                                <div class="product-image">
-                                    <a href="single-product.html">
-                                        <img class="first-image" src="~/uploads/products/@product.ProductImages.Where(p => p.IsPoster==true).FirstOrDefault().Url" alt="product">
-                                        <img class="second-image" src="~/uploads/products/@product.ProductImages.Where(p => p.IsPoster==false).FirstOrDefault().Url" alt="product">
-                                    </a>
-                                    <ul class="product-meta">
-                                        <li><a href="#"><i class="icon ion-bag"></i></a></li>
-                                        <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
-                                        <li><a href="#"><i class="icon ion-android-options"></i></a></li>
-                                        <li><a data-toggle="modal" data-target="#productQuickModal" href="#"><i class="icon ion-android-open"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product-content">
-                                    <ul class="product-rating">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                    </ul>
-                                    <h4 class="product-title"><a href="single-product.html">@product.Title</a></h4>
-                                    <div class="product-price">
-                                        <span class="price-sale">$@product.SalePrice</span>
-                                    </div>
-                                </div>
-                            </div> <!-- single product -->
-                        }
-                    </div> <!-- product items -->
-                </div>
-            }
+           
+            <div class="tab-pane fade show active" id="computer" role="tabpanel" aria-labelledby="new-tab">
+                <div class="product-items">
+                    <div class="row product-active">
+                        @await Html.PartialAsync("_ProductListlPartial",Model.Products.Where(x=>x.IsDeactive==false && x.CategoryId==categories[0].Id).ToList())
+                    </div> <!-- row -->
+                </div> <!-- product items -->
+            </div>
+            <div class="tab-pane fade" id="smartphone" role="tabpanel" aria-labelledby="smartphone-tab">
+                <div class="product-items">
+                    <div class="row product-active">
+                        @await Html.PartialAsync("_ProductListlPartial", Model.Products.Where(x => x.IsDeactive == false && x.CategoryId == categories[1].Id).ToList())
+
+                    </div> <!-- row -->
+                </div> <!-- product items -->
+            </div>
+            <div class="tab-pane fade" id="game" role="tabpanel" aria-labelledby="game-tab">
+                <div class="product-items">
+                    <div class="row product-active">
+                        @await Html.PartialAsync("_ProductListlPartial", Model.Products.Where(x => x.IsDeactive == false && x.CategoryId == categories[2].Id).ToList())
+
+                    </div> <!-- row -->
+                </div> <!-- product items -->
+            </div>
         </div> <!-- tab content -->
     </div> <!-- container -->
 </section>
-
 <!--====== Product Part Ends ======-->
 <!--====== Special Category Part Start ======-->
 
@@ -544,4 +431,10 @@
 </section>
 
 <!--====== Blog Part Ends ======-->
-
+<script>
+    var detailBtn=document.querySelectorAll(".detailClick")
+    var detailView=document.querySelectorAll(".detailView")
+    detailBtn.on("click", function () {
+        detailView.toggle();
+    });
+</script>
