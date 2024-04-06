@@ -1,17 +1,24 @@
+using AllupProject.Business.Implementations;
+using AllupProject.Business.Interfaces;
 using AllupProject.DAL;
+using AllupProject.Models;
 using AllupProject.ViewModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace AllupProject.Controllers;
 
 public class HomeController : Controller
 {
     private readonly AllupDbContext _context;
+    private readonly ICartService _cartService;
 
-    public HomeController(AllupDbContext context)
+    public HomeController(AllupDbContext context, ICartService cartService)
     {
         _context = context;
+        _cartService = cartService;
     }
     public async Task<IActionResult> Index()
     {
@@ -29,4 +36,62 @@ public class HomeController : Controller
     public IActionResult Blog() => View();
     public IActionResult Contact() => View();
     public IActionResult Detail() => PartialView("_ProductDetailPartial");
+
+    public async Task<IActionResult> AddToCart(int productId)
+    {
+        try
+        {
+            await _cartService.AddToCart(HttpContext, productId);
+            return RedirectToAction("Cart");
+
+        }
+        catch (Exception)
+        {
+            return NotFound();
+        }
+
+    }
+
+    public async Task<IActionResult> RemoveItemFromCart(int productId)
+    {
+        try
+        {
+            await _cartService.RemoveItemFromCart(HttpContext, productId);
+            return RedirectToAction("Cart");
+
+        }
+        catch (Exception)
+        {
+            return NotFound();
+        }
+    }
+
+    public async Task<IActionResult> DeleteItemFromCart(int productId)
+    {
+        try
+        {
+            await _cartService.RemoveItemFromCart(HttpContext, productId);
+            return RedirectToAction("Cart");
+
+        }
+        catch (Exception)
+        {
+            return NotFound();
+        }
+    }
+
+    public async Task<IActionResult> Cart()
+    {
+        try
+        {
+           List<CartItemViewModel> cartItems= await _cartService.Cart(HttpContext);
+        ViewBag.Products = _context.Products.Include(x => x.ProductImages).ToList();
+        return View(cartItems);
+        }
+        catch (Exception)
+        {
+            return NotFound();
+        }
+
+    }
 }

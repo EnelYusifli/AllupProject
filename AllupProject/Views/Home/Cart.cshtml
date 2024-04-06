@@ -1,0 +1,120 @@
+﻿@model List<CartItemViewModel>
+@{
+    List<Product> products = ViewBag.Products;
+    List<Product> cartProducts = new List<Product>();
+    double total = 0;
+}
+@foreach (var item in Model)
+{
+    Product matchedProduct = products.FirstOrDefault(x => x.Id == item.ProductId);
+    if (matchedProduct is not null)
+    {
+        cartProducts.Add(matchedProduct);
+    }
+}
+
+    <!--====== Cart Part Start ======-->
+
+    <section class="cart-page pt-10">
+        <div class="container-fluid custom-container">
+            <div class="row">
+                <div class="col-xl-8">
+                    <div class="shopping-cart mt-25">
+                        <h4 class="allup-title">Shopping Cart</h4>
+
+                        <div class="shopping-cart-table table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="image">Image</th>
+                                        <th class="product">Product</th>
+                                        <th class="price">Price</th>
+                                        <th class="quantity">Quantity</th>
+                                        <th class="total">Total</th>
+                                        <th class="delete">Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                {
+                                    Product product = products.FirstOrDefault(x => x.Id == item.ProductId);
+                                    <tr>
+                                        <td>
+                                            <div class="product-image">
+                                                <img src="~/uploads//products/@product.ProductImages.FirstOrDefault(x=>x.IsPoster==true).Url" alt="cart">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="product-title">
+                                                <h4 class="title"><a href="single-product.html">@product.Title</a></h4>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="product-price">
+                                                <span class="price">$@product.SalePrice</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="product-quantity">
+                                                <div class="quantity mt-15 d-flex">
+                                                    <a asp-action="RemoveItemFromCart" asp-controller="home" asp-route-productid="@product.Id" type="button" class="sub "><i class="fal fa-minus"></i></a>
+                                                    <input type="text" value="@item.Count" />
+                                                    <a asp-action="AddToCart" asp-controller="home" asp-route-productid="@product.Id" type="button" class="add "><i class="fal fa-plus"></i></a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            @{
+                                                double amount = product.SalePrice * item.Count;
+                                                total += amount;
+                                            }
+                                            <div class="product-total">
+                                                <span class="total-amount">$@amount</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="product-delete">
+                                                <a asp-action="DeleteItemFromCart" asp-controller="home" asp-route-productid="@product.Id"><i class="fal fa-trash-alt"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4">
+                    <div class="row">
+                        <div class="col-xl-12 col-md-6">
+                            <div class="cart-coupon mt-30">
+                                <h5 class="title">Discount Coupon Code</h5>
+                                <form action="#">
+                                    <div class="single-form coupon-form d-flex flex-wrap">
+                                        <input type="text" placeholder="Coupon Code">
+                                        <button class="main-btn">Apply Coupon</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-md-6">
+                            <div class="cart-total mt-30">
+                                <div class="total">
+                                    <div class="single-total">
+                                        <span class="cart-value">Total</span>
+                                        <span class="cart-amount">$@total</span>
+                                    </div>
+                                </div>
+                                <div class="cart-total-btn text-right">
+                                    <a class="main-btn" href="#">Proceed to Checkout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--====== Cart Part Ends ======-->
+  
