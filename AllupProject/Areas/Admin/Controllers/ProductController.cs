@@ -22,7 +22,7 @@ public class ProductController : Controller
         _productService = productService;
         _context = context;
     }
-    public IActionResult Index(int page)
+    public IActionResult Index(int page=1)
     {
         var products =  _productService.GetAllAsQueryableAsync();
         var paginatedDatas = PaginatedList<Product>.Create(products, 5, page);

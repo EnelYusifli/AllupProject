@@ -15,7 +15,7 @@ public class BlogController : Controller
     {
         _blogService = blogService;
     }
-    public IActionResult Index(int page)
+    public IActionResult Index(int page=1)
     {
         var blogs = _blogService.GetAllAsQueryableAsync();
         var paginatedDatas = PaginatedList<Blog>.Create(blogs, 5, page);

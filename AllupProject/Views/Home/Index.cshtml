@@ -133,7 +133,7 @@
             <div class="tab-pane fade" id="featured" role="tabpanel" aria-labelledby="featured-tab">
                 <div class="product-items">
                     <div class="row product-active">
-                        @await Html.PartialAsync("_ProductListlPartial", Model.Products.Where(x => x.IsFeatured == true).ToList())
+                        @await Html.PartialAsync("_ProductListlPartial", Model.Products.Where(x => x.IsFeatured == true).Take(4).ToList())
 
                     </div> <!-- row -->
                 </div> <!-- product items -->
@@ -223,33 +223,22 @@
                         <h2 class="special-title">Deal of the week</h2>
                         <div data-countdown="2021/12/19"></div>
                     </div> <!-- special product countdown -->
+                    @{
+                        Product product = Model.Products.FirstOrDefault();
+                    }
                     <div class="special-product-gallery-2">
                         <div class="product-gallery-image-2">
                             <div class="single-products-image">
                                 <a href="#">
-                                    <img src="~/assets/images/special-products/special-products-1.jpg" alt="products">
+                                    <img src="~/uploads/products/@product.ProductImages.FirstOrDefault(x=>x.IsPoster==true).Url" alt="products">
                                 </a>
                             </div>
                             <div class="single-products-image">
                                 <a href="#">
-                                    <img src="~/assets/images/special-products/special-products-2.jpg" alt="products">
+                                    <img src="~/uploads/products/@product.ProductImages.FirstOrDefault(x=>x.IsPoster==false).Url" alt="products">
                                 </a>
                             </div>
-                            <div class="single-products-image">
-                                <a href="#">
-                                    <img src="~/assets/images/special-products/special-products-3.jpg" alt="products">
-                                </a>
-                            </div>
-                            <div class="single-products-image">
-                                <a href="#">
-                                    <img src="~/assets/images/special-products/special-products-4.jpg" alt="products">
-                                </a>
-                            </div>
-                            <div class="single-products-image">
-                                <a href="#">
-                                    <img src="~/assets/images/special-products/special-products-5.jpg" alt="products">
-                                </a>
-                            </div>
+                            
                         </div>
                         <div class="product-gallery-thumb-2">
                             <ul class="product-thumb-2">
@@ -260,7 +249,7 @@
                                 <li><img src="~/assets/images/special-products/special-products-5.jpg" alt="Products Thumb"></li>
                             </ul>
                         </div>
-                        <h2 class="product-title"><a href="#">Calvin Klein Jeans...</a></h2>
+                        <h2 class="product-title"><a href="#">@product.Title</a></h2>
                         <ul class="products-rating">
                             <li class="rating-on"><i class="fas fa-star"></i></li>
                             <li class="rating-on"><i class="fas fa-star"></i></li>
@@ -270,11 +259,14 @@
                         </ul>
                         <div class="product-price-and-cart d-sm-flex align-items-center">
                             <div class="product-price">
-                                <span class="price-sale">â‚¬21.03</span>
-                                <span class="regular-price">â‚¬23.90</span>
+                                @{
+                                    double price = product.SalePrice * ((100 - @product.DiscountPercent) / 100);
+                                }
+                                <span class="price-sale">$@price</span>
+                                <span class="regular-price">$@product.SalePrice</span>
                             </div>
                             <div class="product-cart">
-                                <a class="main-btn main-btn-2" href="#">Add to cart</a>
+                                <a class="main-btn main-btn-2" asp-action="addtocart" asp-controller="home" asp-route-productid="@product.Id">Add to cart</a>
                             </div>
                         </div>
                     </div>
@@ -288,109 +280,21 @@
                         </div>
                     </div>
                 </div> <!-- row -->
+
                 <div class="row category-active-2">
-                    <div class="col-lg-2">
-                        <div class="single-category text-center">
-                            <a target="_blank" href="shop-left-sidebar.html">
-                                <img src="~/assets/images/category-1.jpg" alt="category">
-                                <p>Laptop</p>
-                            </a>
-                        </div> <!-- single category -->
-                        <div class="single-category text-center">
-                            <a target="_blank" href="shop-left-sidebar.html">
-                                <img src="~/assets/images/category-2.jpg" alt="category">
-                                <p>Computer</p>
-                            </a>
-                        </div> <!-- single category -->
-                        <div class="single-category text-center">
-                            <a target="_blank" href="shop-left-sidebar.html">
-                                <img src="~/assets/images/category-3.jpg" alt="category">
-                                <p>Smartphone</p>
-                            </a>
-                        </div> <!-- single category -->
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="single-category text-center">
-                            <a target="_blank" href="shop-left-sidebar.html">
-                                <img src="~/assets/images/category-4.jpg" alt="category">
-                                <p>Game Consoles</p>
-                            </a>
-                        </div> <!-- single category -->
-                        <div class="single-category text-center">
-                            <a target="_blank" href="shop-left-sidebar.html">
-                                <img src="~/assets/images/category-5.jpg" alt="category">
-                                <p>Bottoms</p>
-                            </a>
-                        </div> <!-- single category -->
-                        <div class="single-category text-center">
-                            <a target="_blank" href="shop-left-sidebar.html">
-                                <img src="~/assets/images/category-6.jpg" alt="category">
-                                <p>Tops & Sets</p>
-                            </a>
-                        </div> <!-- single category -->
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="single-category text-center">
-                            <a target="_blank" href="shop-left-sidebar.html">
-                                <img src="~/assets/images/category-7.jpg" alt="category">
-                                <p>Audio & Video</p>
-                            </a>
-                        </div> <!-- single category -->
-                        <div class="single-category text-center">
-                            <a target="_blank" href="shop-left-sidebar.html">
-                                <img src="~/assets/images/category-8.jpg" alt="category">
-                                <p>Accessories</p>
-                            </a>
-                        </div> <!-- single category -->
-                        <div class="single-category text-center">
-                            <a target="_blank" href="shop-left-sidebar.html">
-                                <img src="~/assets/images/category-9.jpg" alt="category">
-                                <p>Camera</p>
-                            </a>
-                        </div> <!-- single category -->
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="single-category text-center">
-                            <a target="_blank" href="shop-left-sidebar.html">
-                                <img src="~/assets/images/category-10.jpg" alt="category">
-                                <p>Accessories</p>
-                            </a>
-                        </div> <!-- single category -->
-                        <div class="single-category text-center">
-                            <a target="_blank" href="shop-left-sidebar.html">
-                                <img src="~/assets/images/category-11.jpg" alt="category">
-                                <p> Games & Consoles </p>
-                            </a>
-                        </div> <!-- single category -->
-                        <div class="single-category text-center">
-                            <a target="_blank" href="shop-left-sidebar.html">
-                                <img src="~/assets/images/category-12.jpg" alt="category">
-                                <p>Video Games</p>
-                            </a>
-                        </div> <!-- single category -->
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="single-category text-center">
-                            <a target="_blank" href="shop-left-sidebar.html">
-                                <img src="~/assets/images/category-1.jpg" alt="category">
-                                <p>Tops & Sets</p>
-                            </a>
-                        </div> <!-- single category -->
-                        <div class="single-category text-center">
-                            <a target="_blank" href="shop-left-sidebar.html">
-                                <img src="~/assets/images/category-2.jpg" alt="category">
-                                <p>Bottoms</p>
-                            </a>
-                        </div> <!-- single category -->
-                        <div class="single-category text-center">
-                            <a target="_blank" href="shop-left-sidebar.html">
-                                <img src="~/assets/images/category-3.jpg" alt="category">
-                                <p>Smartphone</p>
-                            </a>
-                        </div> <!-- single category -->
-                    </div>
+                    @foreach (var item in Model.Categories)
+                    {
+                        <div class="col-lg-2">
+                            <div class="single-category text-center" style="margin-bottom: 15px">
+                                <a target="_blank" asp-action="Index" asp-controller="Shop" asp-route-categoryid="@item.Id" style="text-decoration: none; color: #333; display: block;">
+                                    <p style="margin: 0;">@item.Name</p>
+                                </a>
+                            </div> <!-- single category -->
+                        </div>
+                    }
                 </div> <!-- row -->
             </div>
+
         </div>
     </div> <!-- container -->
 </section>

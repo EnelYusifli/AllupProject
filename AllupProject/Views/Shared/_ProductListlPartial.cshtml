@@ -30,7 +30,10 @@
                 </ul>
                 <h4 class="product-title"><a href="single-product.html">@product.Title</a></h4>
                 <div class="product-price">
-                    <span class="price-sale">$@product.SalePrice</span>
+                    @{
+                        double price = product.SalePrice * ((100 - @product.DiscountPercent) / 100);
+                    }
+                    <span class="price-sale">$@price</span>
                 </div>
             </div>
         </div> <!-- single product -->

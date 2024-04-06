@@ -16,7 +16,7 @@ public class BannerController : Controller
     {
         _bannerService = bannerService;
     }
-    public IActionResult Index(int page)
+    public IActionResult Index(int page=1)
     {
         var banners = _bannerService.GetAllAsQueryableAsync();
         var paginatedDatas = PaginatedList<Banner>.Create(banners, 5, page);

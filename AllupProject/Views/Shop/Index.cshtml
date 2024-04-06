@@ -1,0 +1,221 @@
+﻿@model PaginatedList<Product>
+@{
+    List<Category> categories = ViewBag.Categories;
+}
+<!--====== Shop Left sidebar Part Start ======-->
+
+<section class="shop-area pt-20">
+    <div class="container-fluid custom-container">
+        <div class="row flex-md-row-reverse justify-content-end">
+            <div class="col-lg-9">
+                <div class="banner-image banner-2 mt-30">
+                    <img src="~/assets/images/banner-13.jpg" alt="banner">
+                </div> <!-- banner image -->
+
+                <div class="shop-header">
+                    <div class="row align-items-center">
+                        <div class="col-sm-6">
+                            <div class="shop-header-left d-flex flex-wrap align-items-center">
+                                <div class="shop-header-icon">
+                                    <ul class="nav" id="myTab" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <a class="active" id="grid-tab" data-toggle="tab" href="#grid" role="tab" aria-controls="grid" aria-selected="true"><i class="icon ion-grid show_grid"></i></a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false"><i class="icon ion-android-menu show_list"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="shop-header-right d-flex flex-wrap align-items-center justify-content-sm-end">
+                                <div class="shop-header-select d-flex flex-wrap">
+                                    <span class="select-title">Show:</span>
+                                    <select>
+                                        <option value="1">10</option>
+                                        <option value="2">20</option>
+                                        <option value="3">30</option>
+                                        <option value="4">40</option>
+                                    </select>
+                                </div>
+                                <div class="shop-header-select">
+                                    <span class="select-title">Sort By:</span>
+                                    <select>
+                                        <option value="1">Default</option>
+                                        <option value="2">Name (A-Z)</option>
+                                        <option value="3">Price (min - max)</option>
+                                        <option value="4">Color</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- row -->
+                </div> <!-- shop header -->
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="grid" role="tabpanel" aria-labelledby="grid-tab">
+                        <div class="row">
+                            @foreach (var product in Model)
+                            {
+                                <div class="col-lg-3 col-md-6 col-sm-6">
+                                    <div class="single-product mt-30">
+                                        <div class="product-image">
+                                            <a href="single-product.html">
+                                                <img class="first-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==true).FirstOrDefault().Url" alt="product">
+                                                <img class="second-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==false).FirstOrDefault().Url" alt="product">
+                                            </a>
+                                            @if (@product.DiscountPercent > 0)
+                                            {
+                                                <span class="discount-product">-@product.DiscountPercent%</span>
+                                            }
+                                            <ul class="product-meta">
+                                                <li><a asp-action="AddToCart" asp-controller="home" asp-route-productid="@product.Id"><i class="icon ion-bag"></i></a></li>
+                                                <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
+                                                <li><a href="#"><i class="icon ion-android-options"></i></a></li>
+                                                <li><a asp-action="Detail" asp-controller="home"><i class="icon ion-android-open"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product-content">
+                                            <ul class="product-rating">
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                            </ul>
+                                            <h4 class="product-title"><a href="single-product.html">@product.Title</a></h4>
+                                            <div class="product-price">
+                                                @{
+                                                    double price = product.SalePrice * ((100 - @product.DiscountPercent) / 100);
+                                                }
+                                                <span class="price-sale">$@price</span>
+                                            </div>
+                                        </div>
+                                    </div> <!-- single product -->
+                                </div>
+                            }
+                        </div> <!-- row -->
+                    </div>
+                    <div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="list-tab">
+                        @foreach (var product in Model)
+                        {
+                        <div class="single-product-list mt-30">
+                            <div class="row">
+                                <div class="col-sm-5 col-xl-3">
+                                    <div class="product-image">
+                                        <a href="single-product.html">
+                                                <img class="first-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==true).FirstOrDefault().Url" alt="product">
+                                                <img class="second-image" src="~/uploads/products/@product.ProductImages.Where(x=>x.IsPoster==false).FirstOrDefault().Url" alt="product">
+                                        </a>
+                                            @if (@product.DiscountPercent > 0)
+                                            {
+                                                <span class="discount-product">-@product.DiscountPercent%</span>
+                                            }
+                                    </div>
+                                </div>
+                                <div class="col-sm-7 col-xl-9">
+                                    <div class="product-content">
+                                            <ul class="product-rating">
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                            </ul>
+                                        <h4 class="product-title"><a href="single-product.html">@product.Title</a></h4>
+                                        <span class="availability">Availability: @product.StockCount In Stock</span>
+                                        <div class="product-price">
+                                            <span class="regular-price">$@product.SalePrice</span>
+                                                @{
+                                                    double price = product.SalePrice * ((100 - @product.DiscountPercent) / 100);
+                                                }
+                                            <span class="price-sale">$@price</span>
+                                        </div>
+                                        <p> @product.Desc </p>
+                                        <ul class="product-meta">
+                                                <li><a asp-action="AddToCart" asp-controller="home" asp-route-productid="@product.Id"><i class="icon ion-bag"></i></a></li>
+                                                <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
+                                                <li><a href="#"><i class="icon ion-android-options"></i></a></li>
+                                                <li><a asp-action="Detail" asp-controller="home"><i class="icon ion-android-open"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- single product List -->
+                            
+                        }
+                    </div>
+                </div> <!-- Tab Content -->
+
+                <ul class="pagination justify-content-center mt-30">
+                    <li class="page-item @(Model.HasPrev ? "" : "disabled")"><a class="page-link" asp-action="Index" asp-route-page="@(Model.CurrentPage - 1)"><i class="fal fa-chevron-left"></i></a></li>
+                    @for (int i = 1; i <= Model.TotalPageCount; i++)
+                    {
+                        <li class="page-item @(Model.CurrentPage == i ? "active" : "")">
+                            <a class="page-link" asp-action="Index" asp-route-page="@i">@i</a>
+                        </li>
+                    }
+                    <li class="page-item @(Model.HasNext ? "" : "disabled")"><a class="page-link" asp-action="Index" asp-route-page="@(Model.CurrentPage + 1)"><i class="fal fa-chevron-right"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <div class="shop-sidebar">
+                    <div class="shop-sidebar-widget mt-30">
+                        <h5 class="shop-sidebar-title">Categories</h5>
+                        <div class="accordion" id="accordionExample">
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Categories</a>
+                                </div>
+
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <ul class="category-list">
+                                            @foreach (var category in categories)
+                                            {
+                                                <li><a asp-action="index" asp-controller="shop" asp-route-page="1" asp-route-categoryid="@category.Id">@category.Name</a></li>
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div> <!-- card -->
+                        </div> <!-- accordion -->
+                    </div> <!-- Shop sidebar Category -->
+
+                    <div class="shop-sidebar-widget mt-30">
+                        <h5 class="shop-sidebar-title">Features</h5>
+                        <ul class="compositions-list">
+                            <li>
+                                <span class="custom-checkbox">
+                                    <label for="compositions1"></label>
+                                    <a id="featuredProducts" asp-controller="Shop" asp-route-page="1" asp-route-isfeat="true">Featured Products</a>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="custom-checkbox">
+                                    <label for="compositions2"></label>
+                                    <a id="newProducts"  asp-controller="Shop" asp-route-page="1" asp-route-isnew="true">New Products</a>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="custom-checkbox">
+                                    <label for="compositions3"></label>
+                                    <a id="bestSellers" asp-controller="Shop" asp-route-page="1" asp-route-isbest="true">Best Sellers</a>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="banner-image banner-2 mt-30">
+                        <a href="#"><img src="assets/images/banner-10.jpg" alt="banner"></a>
+                    </div> <!-- banner image -->
+                </div> <!-- Shop sidebar -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</section>
+
+<!--====== Shop Left sidebar Part Ends ======-->
+
+
+
+

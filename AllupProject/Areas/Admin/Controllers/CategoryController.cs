@@ -18,7 +18,7 @@ public class CategoryController : Controller
         _categoryService = categoryService;
     }
 
-    public IActionResult Index(int page)
+    public IActionResult Index(int page=1)
     {
         var categories = _categoryService.GetAllAsQueryableAsync();
         var paginatedDatas = PaginatedList<Category>.Create(categories, 5, page);

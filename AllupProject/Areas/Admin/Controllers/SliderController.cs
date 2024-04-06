@@ -16,7 +16,7 @@ public class SliderController : Controller
     {
         _sliderService = sliderService;
     }
-    public IActionResult Index(int page)
+    public IActionResult Index(int page=1)
     {
         var sliders = _sliderService.GetAllAsQueryableAsync();
         var paginatedDatas = PaginatedList<Slider>.Create(sliders, 5, page);

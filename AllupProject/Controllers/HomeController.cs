@@ -35,6 +35,7 @@ public class HomeController : Controller
     public IActionResult About() => View();
     public IActionResult Blog() => View();
     public IActionResult Contact() => View();
+    public IActionResult Shop() => View();
     public IActionResult Detail() => PartialView("_ProductDetailPartial");
 
     public async Task<IActionResult> AddToCart(int productId)
@@ -70,7 +71,7 @@ public class HomeController : Controller
     {
         try
         {
-            await _cartService.RemoveItemFromCart(HttpContext, productId);
+            await _cartService.DeleteItemFromCart(HttpContext, productId);
             return RedirectToAction("Cart");
 
         }
