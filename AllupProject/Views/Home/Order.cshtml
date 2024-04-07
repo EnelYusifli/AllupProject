@@ -1,0 +1,121 @@
+﻿@model Order
+@{
+    List<Product> products = ViewBag.Products;
+    List<CartItemViewModel> orderProducts = ViewBag.OrderProducts;
+    double total = 0;
+}
+
+    <!--====== Checkout Part Start ======-->
+
+    <section class="checkout-area pt-10">
+    <form method="post">
+
+        <div class="container-fluid custom-container">
+            <div class="row">
+                <div class="col-xl-8 col-lg-7">
+                    <div class="checkout-form">
+                            <div class="billing-address mt-30">
+                                <h4 class="allup-title">Billing Address</h4>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="single-form">
+                                            <label>First Name*</label>
+                                            <input asp-for="FirstName" placeholder="First Name">
+                                            <span asp-validation-for="FirstName" style="color:red"></span>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="single-form">
+                                            <label>Last  Name*</label>
+                                            <input asp-for="LastName" placeholder="Last Name">
+                                            <span asp-validation-for="LastName" style="color:red"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="single-form">
+                                            <label>Email Address*</label>
+                                            <input asp-for="EmailAddress" placeholder="Email Address">
+                                            <span asp-validation-for="EmailAddress" style="color:red"></span>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="single-form">
+                                            <label>Address</label>
+                                            <input asp-for="Address1" placeholder="Address Line 1">
+                                            <span asp-validation-for="Address1" style="color:red"></span>
+
+                                            <input asp-for="Address2" placeholder="Address Line 2">
+                                            <span asp-validation-for="Address2" style="color:red"></span>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="single-form">
+                                            <label>Country</label>
+                                            <input asp-for="Country" placeholder="Country">
+                                            <span asp-validation-for="Country" style="color:red"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="single-form">
+                                            <label>Town/City*</label>
+                                            <input asp-for="City" placeholder="Town/City">
+                                            <span asp-validation-for="City" style="color:red"></span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkout-checkbox">
+                                <ul>
+                                    <li>
+                                        <div class="custom-checkbox">
+                                            <label for="account"></label>
+                                            <a asp-action="register" asp-controller="account"> 
+                                                <p>Create an Account? </p>
+                                            </a>
+                                    </div>
+                                          
+                                    </li>
+                                </ul>
+                            </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-5">
+                    <div class="checkout-total-wrapper mt-30">
+                        <h4 class="allup-title">Cart Total</h4>
+                        <div class="checkout-total mt-30">
+                            <h4 class="title">Product  <span>Total</span></h4>
+                            <ul>
+                                @foreach (var item in orderProducts)
+                                {
+                                Product product = products.FirstOrDefault(x => x.Id == item.ProductId);
+                                <li>
+                                    <p class="total-value">@product.Title X @item.Count</p>
+                                    @{
+                                        double price = product.SalePrice * ((100 - @product.DiscountPercent) / 100);
+                                        double amount = price * item.Count;
+                                        total += amount;
+                                    }
+                                    <p class="total-amount">$@amount</p>
+                                </li>
+                                
+                            }
+                               
+                            </ul>
+                            <h4 class="title mt-15">Totally  <span>$@total</span></h4>
+                        </div>
+                    </div>
+
+                    <div class="checkout-btn">
+                        <button class="main-btn main-btn-2"  type="submit">Place Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+    </section>
+
+    <!--====== Checkout Part Ends ======-->

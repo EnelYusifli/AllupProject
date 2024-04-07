@@ -1,5 +1,6 @@
 using AllupProject.Business.Implementations;
 using AllupProject.Business.Interfaces;
+using AllupProject.CustomExceptions.Common;
 using AllupProject.DAL;
 using AllupProject.Models;
 using AllupProject.ViewModels;
@@ -14,11 +15,13 @@ public class HomeController : Controller
 {
     private readonly AllupDbContext _context;
     private readonly ICartService _cartService;
+    private readonly IOrderService _orderService;
 
-    public HomeController(AllupDbContext context, ICartService cartService)
+    public HomeController(AllupDbContext context, ICartService cartService, IOrderService orderService)
     {
         _context = context;
         _cartService = cartService;
+        _orderService = orderService;
     }
     public async Task<IActionResult> Index()
     {
@@ -94,5 +97,40 @@ public class HomeController : Controller
             return NotFound();
         }
 
+    }
+
+    public async Task<IActionResult> Order()
+    {
+        try
+        {
+            List<CartItemViewModel> orderItems = await _orderService.GetOrderItems(HttpContext);
+            ViewBag.Products = _context.Products.ToList();
+            ViewBag.OrderProducts = orderItems;
+            return View();
+        }
+        catch (Exception)
+        {
+            return NotFound();
+        }
+
+    }
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Order(Order order)
+    {
+        List<CartItemViewModel> orderItems = await _orderService.GetOrderItems(HttpContext);
+        ViewBag.Products = _context.Products.ToList();
+        ViewBag.OrderProducts = orderItems;
+        if (!ModelState.IsValid) return View();
+        try
+        {
+            await _orderService.CreateOrderAsync(HttpContext, orderItems, order);
+            return RedirectToAction("index");
+        }
+        catch (Exception ex)
+        {
+            ModelState.AddModelError("", ex.Message);
+            return View();
+        }
     }
 }

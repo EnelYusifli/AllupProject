@@ -67,16 +67,48 @@
             <span asp-validation-for="IsDeactive" style="color:red"></span>
         </div>
         <div class="mb-3">
+            <div>
+                @{
+                    string? posterUrl = Model.ProductImages
+                    .Where(x => x.IsPoster == true)
+                    .FirstOrDefault().Url;
+                }
+                <img src="~/uploads/products/@posterUrl" alt="Alternate Text" style="width:130px" />
+            </div>
             <label for="PosterImgFile" class="form-label">PosterImgFile</label><br>
             <input asp-for="PosterImgFile" class="form"><br>
             <span asp-validation-for="PosterImgFile" style="color:red"></span>
         </div>
         <div class="mb-3">
+            <div>
+                @{
+                    string? hoverUrl = Model.ProductImages
+                    .Where(x => x.IsPoster == false)
+                    .FirstOrDefault().Url;
+                }
+                <img src="~/uploads/products/@hoverUrl" alt="Alternate Text" style="width:130px" />
+            </div>
             <label for="HoverImgFile" class="form-label">HoverImgFile</label><br>
             <input asp-for="HoverImgFile" class="form"><br>
             <span asp-validation-for="HoverImgFile" style="color:red"></span>
         </div>
         <div class="mb-3">
+            @{
+                if ((Model.ProductImages.Where(x => x.IsPoster == null)) is not null)
+                {
+                    <div class="container mt-5">
+                        <div class="row">
+                            @foreach (var img in (Model.ProductImages.Where(x => x.IsPoster == null)))
+                            {
+                                <div style="position: relative; display: inline-block;">
+                                    <img src="~/uploads/products/@img.Url" alt="Image" style="width:130px">
+                                    <span class="delete" data-filename="@img.Url" onclick="deleteDetailImage('@img.Url')" style="position: absolute; top: 1px; right: 1px; cursor: pointer; color: red;">X</span>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            }
             <label for="DetailImgFiles" class="form-label">DetailImgFiles</label><br>
             <input asp-for="DetailImgFiles" class="form"><br>
             <span asp-validation-for="DetailImgFiles" style="color:red"></span>
@@ -88,7 +120,7 @@
 
 <script>
     function deleteDetailImage(filename) {
-        fetch(`/Admin/Book/Update?filename=${filename}`, {
+        fetch(`/Admin/Product/Update?filename=${filename}`, {
             method: 'DELETE',
         })
             .then(response => {
