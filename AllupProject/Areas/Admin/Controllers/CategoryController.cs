@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace AllupProject.Areas.Admin.Controllers;
 
 [Area("admin")]
+[Authorize(Roles = "SuperAdmin,Admin")]
+
 public class CategoryController : Controller
 {
     private readonly ICategoryService _categoryService;
@@ -18,10 +20,10 @@ public class CategoryController : Controller
         _categoryService = categoryService;
     }
 
-    public IActionResult Index(int page=1)
+    public IActionResult Index(int page=1, int itemPerPage = 5)
     {
         var categories = _categoryService.GetAllAsQueryableAsync();
-        var paginatedDatas = PaginatedList<Category>.Create(categories, 5, page);
+        var paginatedDatas = PaginatedList<Category>.Create(categories, itemPerPage, page);
         return View(paginatedDatas);
     }
     public IActionResult Create()

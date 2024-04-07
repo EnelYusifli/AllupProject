@@ -1,0 +1,62 @@
+﻿@model List<Order>
+@{
+    List<Product> products = ViewBag.Products;
+}
+
+@{
+    int cartsPerRow = 2;
+    int cartCounter = 0;
+}
+
+<div class="row">
+@foreach (var order in Model)
+{
+    if (cartCounter % cartsPerRow == 0)
+    {
+        // Start a new row
+        @:</div> <!-- Close previous row -->
+        @:<div class="row mt-4"> <!-- Start new row -->
+    }
+
+    List<OrderItem> orderItems = order.OrderItems.ToList();
+    double total = 0;
+
+    <div class="col-lg-6">
+        <div style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 20px;">
+            <div style="padding: 20px;">
+                <h4 style="color: #333;">Order Information</h4>
+                <p><strong>Customer Name:</strong> @order.FirstName @order.LastName</p>
+                <p><strong>Address:</strong> @order.Address1 @order.Address2</p>
+                <p><strong>Email:</strong> @order.EmailAddress</p>
+                <p><strong>Country:</strong> @order.Country</p>
+                <p><strong>City/Town:</strong> @order.City</p>
+
+                <h4 style="color: #333; margin-bottom: 10px;">Products</h4>
+                <ul style="list-style-type: none; padding: 0;">
+                    @foreach (var item in orderItems)
+                    {
+                        Product product = products.FirstOrDefault(x => x.Id == item.ProductId);
+                        double price = product.SalePrice * ((100 - @product.DiscountPercent) / 100);
+                        double amount = price * item.Count;
+                        total += amount;
+
+                        <li style="padding: 10px 0; border-bottom: 1px solid #ddd;">
+                            <p style="margin: 0;">@product.Title X @item.Count</p>
+                            <p style="margin: 0; font-weight: bold;">$@amount</p>
+                        </li>
+                    }
+                </ul>
+                <h4 style="color: #333; margin-top: 15px;">Totally <span>$@total</span></h4>
+               <div>
+                 <a class="btn btn-danger" asp-action="notapprove" asp-controller="approvation" asp-route-orderid="@order.Id">Do not Approve</a>
+                 <a class="btn btn-success" asp-action="approve" asp-controller="approvation" asp-route-orderid="@order.Id">Approve</a>
+               </div>
+            </div>
+        </div>
+    </div>
+
+    cartCounter++;
+}
+</div> <!-- Close last row -->
+
+

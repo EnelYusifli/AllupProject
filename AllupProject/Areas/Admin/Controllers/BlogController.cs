@@ -3,10 +3,13 @@ using AllupProject.Business.Interfaces;
 using AllupProject.CustomExceptions.Common;
 using AllupProject.Helpers;
 using AllupProject.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AllupProject.Areas.Admin.Controllers;
 [Area("Admin")]
+[Authorize(Roles = "SuperAdmin,Admin")]
+
 public class BlogController : Controller
 {
     private readonly IBlogService _blogService;
@@ -15,10 +18,10 @@ public class BlogController : Controller
     {
         _blogService = blogService;
     }
-    public IActionResult Index(int page=1)
+    public IActionResult Index(int page=1, int itemPerPage = 5)
     {
         var blogs = _blogService.GetAllAsQueryableAsync();
-        var paginatedDatas = PaginatedList<Blog>.Create(blogs, 5, page);
+        var paginatedDatas = PaginatedList<Blog>.Create(blogs, itemPerPage, page);
         return View(paginatedDatas);
     }
     public IActionResult Create()

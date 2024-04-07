@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AllupProject.Areas.Admin.Controllers;
 [Area("Admin")]
+[Authorize(Roles = "SuperAdmin,Admin")]
+
 public class BannerController : Controller
 {
     private readonly IBannerService _bannerService;
@@ -16,10 +18,10 @@ public class BannerController : Controller
     {
         _bannerService = bannerService;
     }
-    public IActionResult Index(int page=1)
+    public IActionResult Index(int page=1, int itemPerPage = 5)
     {
         var banners = _bannerService.GetAllAsQueryableAsync();
-        var paginatedDatas = PaginatedList<Banner>.Create(banners, 5, page);
+        var paginatedDatas = PaginatedList<Banner>.Create(banners, itemPerPage, page);
         return View(paginatedDatas);
     }
     public IActionResult Create()

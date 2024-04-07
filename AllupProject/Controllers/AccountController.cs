@@ -1,25 +1,20 @@
-﻿using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication;
+﻿using AllupProject.Business.Interfaces;
+using AllupProject.CustomExceptions.Common;
+using AllupProject.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.EntityFrameworkCore;
-using AllupProject.Areas.Admin.ViewModels;
-using AllupProject.Business.Interfaces;
-using AllupProject.CustomExceptions.Common;
-using AllupProject.DAL;
-using AllupProject.Models;
-using AllupProject.ViewModels;
 
 namespace AllupProject.Controllers;
 
 public class AccountController : Controller
 {
     private readonly IAccountService _accService;
+    private readonly UserManager<IdentityUser> _userManager;
 
-    public AccountController(IAccountService accService)
+    public AccountController(IAccountService accService,UserManager<IdentityUser> userManager)
     {
         _accService = accService;
+        _userManager = userManager;
     }
     public IActionResult Register()
     {
@@ -87,7 +82,77 @@ public class AccountController : Controller
     {
        await _accService.LogoutAsync();
 
-        return RedirectToAction("Login", "Acc");
+        return RedirectToAction("Login", "Account");
+    }
+    public IActionResult ForgotPassword()
+    {
+        return View();
+    }
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> ForgotPassword(AllupProject.ViewModels.ForgotPasswordViewModel forgotPasswordVM)
+    {
+        if (!ModelState.IsValid) return View();
+        var user = await _userManager.FindByEmailAsync(forgotPasswordVM.Email);
+
+        if (user is not null)
+        {
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+            var link = Url.Action("ResetPassword", "Account", new { email = forgotPasswordVM.Email, token = token }, Request.Scheme);
+
+
+            //MailAddress to = new MailAddress(forgotPasswordVM.Email);
+            //MailAddress from = new MailAddress("yusiflienel@gmail.com");
+
+            //MailMessage email = new MailMessage(from, to);
+            //email.Subject = "Testing out email sending";
+            //email.Body = link;
+
+            //SmtpClient smtp = new SmtpClient();
+            //smtp.Host = "smtp.gmail.com";
+            //smtp.Port = 25;
+            //smtp.Credentials = new NetworkCredential("smtp_username", "smtp_password");
+            //smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+            //smtp.EnableSsl = true;
+            //smtp.Send(email);
+
+            return View("InfoPage");
+        }
+        else
+        {
+            ModelState.AddModelError("Email", "User not found");
+            return View();
+        }
+    }
+
+    public IActionResult ResetPassword(string email, string token)
+    {
+        if (email == null || token == null) return NotFound();
+        return View();
+    }
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> ResetPassword(AllupProject.ViewModels.ResetPasswordViewModel resetPasswordVM)
+    {
+        if (!ModelState.IsValid) return View();
+        var user = await _userManager.FindByEmailAsync(resetPasswordVM.Email);
+        if (user is not null)
+        {
+            var result = await _userManager.ResetPasswordAsync(user, resetPasswordVM.Token, resetPasswordVM.Password);
+
+            if (!result.Succeeded)
+            {
+                foreach (var err in result.Errors)
+                {
+                    ModelState.AddModelError("", err.Description);
+                    return View();
+                }
+            }
+        }
+        else return NotFound();
+
+        return RedirectToAction(nameof(Login));
     }
 
 }

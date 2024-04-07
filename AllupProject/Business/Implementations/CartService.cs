@@ -20,7 +20,7 @@ public class CartService:ICartService
         _context = context;
         _userManager = userManager;
     }
-    public async Task AddToCart(HttpContext httpContext,int productId)
+    public async Task AddToCart(HttpContext httpContext,int productId,int count=1)
     {
         if (!await _context.Products.AnyAsync(x => x.Id == productId)) throw new EntityCannotBeFoundException();
 
@@ -53,7 +53,7 @@ public class CartService:ICartService
                     cartItem = new CartItemViewModel()
                     {
                         ProductId = productId,
-                        Count = 1
+                        Count = count
                     };
 
                     cartItems.Add(cartItem);
@@ -64,7 +64,7 @@ public class CartService:ICartService
                 cartItem = new CartItemViewModel()
                 {
                     ProductId = productId,
-                    Count = 1
+                    Count = count 
                 };
 
                 cartItems.Add(cartItem);
@@ -83,7 +83,7 @@ public class CartService:ICartService
                 userCartItem = new CartItem()
                 {
                     ProductId = productId,
-                    Count = 1,
+                    Count = count,
                     AppUserId = appUser.Id,
                     IsDeactive = false,
                     CreatedDate = DateTime.UtcNow,

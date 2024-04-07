@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AllupProject.Areas.Admin.Controllers;
 [Area("Admin")]
+[Authorize(Roles = "SuperAdmin,Admin")]
+
 public class SliderController : Controller
 {
     private readonly ISliderService _sliderService;
@@ -16,10 +18,10 @@ public class SliderController : Controller
     {
         _sliderService = sliderService;
     }
-    public IActionResult Index(int page=1)
+    public IActionResult Index(int page=1,int itemPerPage=5)
     {
         var sliders = _sliderService.GetAllAsQueryableAsync();
-        var paginatedDatas = PaginatedList<Slider>.Create(sliders, 5, page);
+        var paginatedDatas = PaginatedList<Slider>.Create(sliders, itemPerPage, page);
         return View(paginatedDatas);
     }
     public IActionResult Create()

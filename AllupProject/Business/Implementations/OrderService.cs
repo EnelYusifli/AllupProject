@@ -88,6 +88,13 @@ public class OrderService:IOrderService
                 ModifiedDate = DateTime.UtcNow.AddHours(4)
             };
             await _context.OrderItems.AddAsync(orderItem);
+            Product product = await _context.Products.Where(x => x.Id == item.ProductId).FirstOrDefaultAsync();
+            if (product == null)
+            {
+                throw new Exception();
+            }
+            product.StockCount -= item.Count;
+            //items.Remove(item);
         }
         await _context.SaveChangesAsync();
     } 

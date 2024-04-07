@@ -12,6 +12,8 @@ using AllupProject.Helpers;
 namespace AllupProject.Areas.Admin.Controllers;
 
 [Area("Admin")]
+[Authorize(Roles = "SuperAdmin,Admin")]
+
 public class ProductController : Controller
 {
     private readonly IProductService _productService;
@@ -22,10 +24,10 @@ public class ProductController : Controller
         _productService = productService;
         _context = context;
     }
-    public IActionResult Index(int page=1)
+    public IActionResult Index(int page=1,int itemPerPage = 5)
     {
         var products =  _productService.GetAllAsQueryableAsync();
-        var paginatedDatas = PaginatedList<Product>.Create(products, 5, page);
+        var paginatedDatas = PaginatedList<Product>.Create(products, itemPerPage, page);
         return View(paginatedDatas);
     }
     public IActionResult Create()

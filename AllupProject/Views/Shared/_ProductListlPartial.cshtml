@@ -17,7 +17,7 @@
                     <li><a asp-action="AddToCart" asp-controller="home" asp-route-productid="@product.Id"><i class="icon ion-bag"></i></a></li>
                     <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
                     <li><a href="#"><i class="icon ion-android-options"></i></a></li>
-                    <li><a  asp-action="Detail" asp-controller="home"><i class="icon ion-android-open"></i></a></li>
+                    <li><a  asp-action="Detail" asp-controller="home" asp-route-productid="@product.Id"><i class="icon ion-android-open"></i></a></li>
                 </ul>
             </div>
             <div class="product-content">
