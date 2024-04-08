@@ -184,11 +184,11 @@
             </div>
         </div> <!-- row -->
         <div class="tab-content">
-           
+
             <div class="tab-pane fade show active" id="computer" role="tabpanel" aria-labelledby="new-tab">
                 <div class="product-items">
                     <div class="row product-active">
-                        @await Html.PartialAsync("_ProductListlPartial",Model.Products.Where(x=>x.IsDeactive==false && x.CategoryId==categories[0].Id).Take(5).ToList())
+                        @await Html.PartialAsync("_ProductListlPartial", Model.Products.Where(x => x.IsDeactive == false && x.CategoryId == categories[0].Id).Take(5).ToList())
                     </div> <!-- row -->
                 </div> <!-- product items -->
             </div>
@@ -238,7 +238,7 @@
                                     <img src="~/uploads/products/@product.ProductImages.FirstOrDefault(x=>x.IsPoster==false).Url" alt="products">
                                 </a>
                             </div>
-                            
+
                         </div>
                         <div class="product-gallery-thumb-2">
                             <ul class="product-thumb-2">
@@ -281,22 +281,46 @@
                     </div>
                 </div> <!-- row -->
 
-                <div class="row category-active-2">
+                <div class="row category-active-2" style="margin-bottom: 15px;">
                     @foreach (var item in Model.Categories)
                     {
                         <div class="col-lg-2">
-                            <div class="single-category text-center" style="margin-bottom: 15px">
+                            <div class="single-category text-center" style="margin-bottom: 15px;">
                                 <a target="_blank" asp-action="Index" asp-controller="Shop" asp-route-categoryid="@item.Id" style="text-decoration: none; color: #333; display: block;">
                                     <p style="margin: 0;">@item.Name</p>
                                 </a>
                             </div> <!-- single category -->
                         </div>
                     }
+                </div>
+                    <div class="container-fluid custom-container">
+                        <div class="row">
+                            @foreach (var banner in Model.Banners.Take(2))
+                            {
+                                <div class="col-md-6">
+                                    <div class="banner-image banner-2">
+                                        <a href="@banner.RedirectUrl"><img src="~/uploads/banners/@banner.ImageUrl" alt="banner"></a>
+                                    </div> <!-- banner image -->
+                                </div>
+                            }
+                        </div>
+                    </div> <!-- row -->
+                <div class="container-fluid custom-container">
+                    <div class="row">
+                        @foreach (var banner in Model.Banners.Skip(2).Take(2))
+                        {
+                            <div class="col-md-6">
+                                <div class="banner-image banner-2">
+                                    <a href="@banner.RedirectUrl"><img src="~/uploads/banners/@banner.ImageUrl" alt="banner"></a>
+                                </div> <!-- banner image -->
+                            </div>
+                        }
+                    </div>
                 </div> <!-- row -->
-            </div>
+               
 
-        </div>
-    </div> <!-- container -->
+            </div>
+        </div> <!-- container -->
 </section>
 
 <!--====== Special Category Part Ends ======-->
@@ -312,32 +336,32 @@
             </div>
         </div> <!-- row -->
         <div class="row blog-active">
-            @foreach(var blog in Model.Blogs)
+            @foreach (var blog in Model.Blogs)
             {
-            <div class="col-lg-4">
-                <div class="single-blog">
-                    <div class="blag-image">
-                        <a asp-action="blog" asp-controller="home"><img src="~/uploads/blogs/@blog.ImageUrl" alt="Blog"></a>
-                        <p class="meta-date">
-                            <span class="day">@blog.Date</span>
-                        </p>
-                    </div>
-                    <div class="blag-content">
-                        <h2 class="blog-title"><a href="blog-single-left-sidebar.html">@blog.Title</a></h2>
-                        <p>@blog.Desc</p>
-                    </div>
-                </div> <!-- single blog -->
-            </div>
+                <div class="col-lg-4">
+                    <div class="single-blog">
+                        <div class="blag-image">
+                            <a asp-action="blog" asp-controller="home"><img src="~/uploads/blogs/@blog.ImageUrl" alt="Blog"></a>
+                            <p class="meta-date">
+                                <span class="day">@blog.Date</span>
+                            </p>
+                        </div>
+                        <div class="blag-content">
+                            <h2 class="blog-title"><a href="blog-single-left-sidebar.html">@blog.Title</a></h2>
+                            <p>@blog.Desc</p>
+                        </div>
+                    </div> <!-- single blog -->
+                </div>
             }
-            </div>
-        </div> <!-- row -->
+        </div>
+    </div> <!-- row -->
     </div> <!-- container -->
 </section>
 
 <!--====== Blog Part Ends ======-->
 <script>
-    var detailBtn=document.querySelectorAll(".detailClick")
-    var detailView=document.querySelectorAll(".detailView")
+    var detailBtn = document.querySelectorAll(".detailClick")
+    var detailView = document.querySelectorAll(".detailView")
     detailBtn.on("click", function () {
         detailView.toggle();
     });
