@@ -15,11 +15,13 @@ public class OrderService:IOrderService
 {
     private readonly AllupDbContext _context;
     private readonly UserManager<IdentityUser> _userManager;
+    private readonly ICartService _cartService;
 
-    public OrderService(AllupDbContext context, UserManager<IdentityUser> userManager)
+    public OrderService(AllupDbContext context, UserManager<IdentityUser> userManager,ICartService cartService)
     {
         _context = context;
         _userManager = userManager;
+        _cartService = cartService;
     }
 
     public async Task<List<CartItemViewModel>> GetOrderItems(HttpContext httpContext)
@@ -94,7 +96,8 @@ public class OrderService:IOrderService
                 throw new Exception();
             }
             product.StockCount -= item.Count;
-            //items.Remove(item);
+            await _cartService.DeleteItemFromCart(httpContext, product.Id);
+
         }
         await _context.SaveChangesAsync();
     } 

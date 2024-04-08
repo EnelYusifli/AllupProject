@@ -1,56 +1,55 @@
 ﻿using AllupProject.Business.Interfaces;
 using AllupProject.DAL;
 using AllupProject.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace AllupProject.Areas.Admin.Controllers;
 [Area("Admin")]
+[Authorize(Roles = "SuperAdmin,Admin")]
+
 public class ApprovationController : Controller
 {
     private readonly AllupDbContext _context;
+    private readonly IApprovationService _approvationService;
 
-    public ApprovationController(AllupDbContext context)
+    public ApprovationController(AllupDbContext context,IApprovationService approvationService)
     {
         _context = context;
+        _approvationService = approvationService;
     }
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        List<Order> orders = _context.Orders.Where(x=>x.IsDeactive==false).Include(x=>x.OrderItems).ToList();
-        ViewBag.Products = _context.Products.ToList();
+        List<Order> orders = await _context.Orders.Where(x=>x.IsDeactive==false).Include(x=>x.OrderItems).ToListAsync();
+        ViewBag.Products =await _context.Products.ToListAsync();
         return View(orders);
     }
     public async Task<IActionResult> Approve(int orderId)
     {
-        Order order= await _context.Orders.FirstOrDefaultAsync(x => x.Id == orderId);
-        if(order == null) {
-            throw new Exception();
+        try
+        {
+           await _approvationService.Approve(orderId);
+            return RedirectToAction("Index");
         }
-        order.IsApproved = true;
-        order.IsDeactive = true;
-        order.ModifiedDate = DateTime.Now.AddHours(4);
-        await _context.SaveChangesAsync();
-        return RedirectToAction("Index"); 
+        catch (Exception ex)
+        {
+            ModelState.AddModelError("", ex.Message);
+            return View("Index");
+        }
+        
     }
     public async Task<IActionResult> NotApprove(int orderId)
     {
-        Order order = await _context.Orders.Include(x=>x.OrderItems).FirstOrDefaultAsync(x => x.Id == orderId);
-        if (order == null)
+        try
         {
-            throw new Exception();
+           await _approvationService.NotApprove(orderId);
+            return RedirectToAction("Index");
         }
-        order.IsApproved = false;
-        order.IsDeactive = true;
-        order.ModifiedDate=DateTime.Now.AddHours(4);
-        foreach (var oi in order.OrderItems)
+        catch (Exception ex)
         {
-            Product product=await _context.Products.Where(x => x.Id == oi.ProductId).FirstOrDefaultAsync();
-            if(product == null) {
-                throw new Exception();
-            }
-            product.StockCount += oi.Count;
+            ModelState.AddModelError("", ex.Message);
+            return View("Index");
         }
-        await _context.SaveChangesAsync();
-        return RedirectToAction("Index");
     }
 }

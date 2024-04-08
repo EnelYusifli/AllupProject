@@ -74,8 +74,8 @@
 
                                          <ul class="dropdown-menu" aria-labelledby="setting">
                                             <li><a href="my-account.html">My account</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
-                                            <li><a href="login.html">Sign in</a></li>
+                                            <li><a asp-action="order" asp-controller="home">Checkout</a></li>
+                                            <li><a asp-action="login" asp-controller="account">Sign in</a></li>
                                         </ul>
                                     </div>
                                 </li>
@@ -350,7 +350,7 @@
                                         <ul class="sub-menu">
                                             <li><a asp-action="about" asp-controller="home">About</a></li>
                                             <li><a asp-action="cart" asp-controller="home">cart</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
+                                            <li><a asp-action="order" asp-controller="home">Checkout</a></li>
                                             <li><a href="compare.html">Compare</a></li>
                                             <li><a href="wishlist.html">Wishlist</a></li>
                                             <li><a href="my-account.html">My Account</a></li>
@@ -394,8 +394,8 @@
 
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                 <li><a href="#">My account</a></li>
-                                                <li><a href="#">Checkout</a></li>
-                                                <li><a href="#">Sign in</a></li>
+                                                <li><a asp-action="order" asp-controller="home">Checkout</a></li>
+                                                <li><a asp-action="login" asp-controller="account">Sign in</a></li>
                                             </ul>
                                         </div>
                                     </li>
@@ -456,7 +456,7 @@
                                                 </div>
                                             </div> <!-- price content -->
                                             <div class="checkout text-center">
-                                                <a href="checkout.html" class="main-btn">Checkout</a>
+                                                <a asp-action="order" asp-controller="home" class="main-btn">Checkout</a>
                                             </div>
                                         </div> <!-- mini cart -->
                                     </li>
@@ -629,7 +629,7 @@
                             <ul class="sub-menu">
                                 <li><a href="about.html">About</a></li>
                                 <li><a href="cart.html">cart</a></li>
-                                <li><a href="checkout.html">Checkout</a></li>
+                                <li><a asp-action="order" asp-controller="home">Checkout</a></li>
                                 <li><a href="compare.html">Compare</a></li>
                                 <li><a href="wishlist.html">Wishlist</a></li>
                                 <li><a href="my-account.html">My Account</a></li>

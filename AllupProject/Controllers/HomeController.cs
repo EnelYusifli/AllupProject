@@ -4,6 +4,7 @@ using AllupProject.CustomExceptions.Common;
 using AllupProject.DAL;
 using AllupProject.Models;
 using AllupProject.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis;
@@ -134,9 +135,6 @@ public class HomeController : Controller
         try
         {
             await _orderService.CreateOrderAsync(HttpContext, orderItems, order);
-
-            await SendDataToAdminApplicationAsync(orderItems, order);
-
             return RedirectToAction("Index");
         }
         catch (Exception ex)
@@ -146,24 +144,5 @@ public class HomeController : Controller
         }
     }
 
-    private async Task SendDataToAdminApplicationAsync(List<CartItemViewModel> orderItems, Order order)
-    {
-        using (var client = new HttpClient())
-        {
-            var adminActionUrl = "https://admin-application-url/action";
-
-            var jsonData = JsonConvert.SerializeObject(new { OrderItems = orderItems, Order = order });
-
-            var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-
-            var response = await client.PostAsync(adminActionUrl, content);
-
-            if (!response.IsSuccessStatusCode)
-            {
-                var errorMessage = await response.Content.ReadAsStringAsync();
-                throw new Exception($"Failed to send data to admin application: {errorMessage}");
-            }
-        }
-    }
 }
 
