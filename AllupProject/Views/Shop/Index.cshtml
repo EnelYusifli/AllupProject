@@ -32,20 +32,25 @@
                             <div class="shop-header-right d-flex flex-wrap align-items-center justify-content-sm-end">
                                 <div class="shop-header-select d-flex flex-wrap">
                                     <span class="select-title">Show:</span>
-                                    <select>
-                                        <option value="1">10</option>
-                                        <option value="2">20</option>
-                                        <option value="3">30</option>
-                                        <option value="4">40</option>
-                                    </select>
+                                    <form id="perPageForm" asp-action="index" asp-controller="shop" method="get">
+                                        <select id="perPageSelect" name="itemperpage">
+                                            <option value="3">3</option>
+                                            <option value="5">5</option>
+                                            <option value="10">10</option>
+                                            <option value="15">15</option>
+                                        </select>
+                                        <noscript>
+                                            <button type="submit">Submit</button> <!-- Provide a fallback button if JavaScript is disabled -->
+                                        </noscript>
+                                    </form>
                                 </div>
+
                                 <div class="shop-header-select">
                                     <span class="select-title">Sort By:</span>
                                     <select>
                                         <option value="1">Default</option>
                                         <option value="2">Name (A-Z)</option>
                                         <option value="3">Price (min - max)</option>
-                                        <option value="4">Color</option>
                                     </select>
                                 </div>
                             </div>
@@ -215,7 +220,28 @@
 </section>
 
 <!--====== Shop Left sidebar Part Ends ======-->
+<script>
+    document.getElementById("perPageSelect").addEventListener("change", function() {
+    document.getElementById("perPageForm").submit();
+});
+        // Get the select element
+        const perPageSelect = document.getElementById("perPageSelect");
 
+    // Get the value of 'itemperpage' parameter from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const itemPerPageParam = urlParams.get('itemperpage');
+
+    // Set the select element's value to the value of 'itemperpage' parameter
+    if (itemPerPageParam !== null) {
+        perPageSelect.value = itemPerPageParam;
+    }
+
+    // Add event listener to save the selected value to local storage when changed
+    perPageSelect.addEventListener("change", function () {
+        localStorage.setItem("lastSelectedValue", this.value);
+    });
+
+</script>
 
 
 

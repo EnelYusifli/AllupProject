@@ -16,7 +16,7 @@ public class ShopController : Controller
         _productService = productService;
         _context = context;
     }
-    public IActionResult Index(int? categoryId,int? minPrice,int? maxPrice,bool? isFeat,bool? isNew,bool? isBest, int page = 1)
+    public IActionResult Index(int? categoryId,int? minPrice,int? maxPrice,bool? isFeat,bool? isNew,bool? isBest, int page = 1,int itemPerPage=3)
     {
         IQueryable<Product> products = null;
         ViewBag.Categories=_context.Categories.ToList();
@@ -44,7 +44,7 @@ public class ShopController : Controller
         {
             products = products.Where(x => x.IsBestSeller == true);
         }
-        var paginatedDatas = PaginatedList<Product>.Create(products, 4, page);
+        var paginatedDatas = PaginatedList<Product>.Create(products, itemPerPage, page);
         return View(paginatedDatas);
     }
 }

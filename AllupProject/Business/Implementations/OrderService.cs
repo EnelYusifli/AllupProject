@@ -1,4 +1,5 @@
 ﻿using AllupProject.Business.Interfaces;
+using AllupProject.CustomExceptions.Common;
 using AllupProject.DAL;
 using AllupProject.Models;
 using AllupProject.ViewModels;
@@ -93,7 +94,7 @@ public class OrderService:IOrderService
             Product product = await _context.Products.Where(x => x.Id == item.ProductId).FirstOrDefaultAsync();
             if (product == null)
             {
-                throw new Exception();
+                throw new EntityCannotBeFoundException();
             }
             product.StockCount -= item.Count;
             await _cartService.DeleteItemFromCart(httpContext, product.Id);
