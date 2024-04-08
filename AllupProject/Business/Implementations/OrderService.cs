@@ -3,12 +3,9 @@ using AllupProject.CustomExceptions.Common;
 using AllupProject.DAL;
 using AllupProject.Models;
 using AllupProject.ViewModels;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
-using System.Diagnostics.Metrics;
-using System.Net.Mail;
 
 namespace AllupProject.Business.Implementations;
 
@@ -78,7 +75,6 @@ public class OrderService:IOrderService
         {
             newOrder.AppUserId = appUser.Id;
         }
-        await _context.Orders.AddAsync(newOrder);
         foreach (var item in items)
         {
             OrderItem orderItem = new()
@@ -97,6 +93,7 @@ public class OrderService:IOrderService
                 throw new EntityCannotBeFoundException();
             }
             product.StockCount -= item.Count;
+        await _context.Orders.AddAsync(newOrder);
             await _cartService.DeleteItemFromCart(httpContext, product.Id);
 
         }

@@ -234,8 +234,14 @@
                                                 <option value="112">Games &amp; Consoles</option>
                                             </select>
                                         </div>
-                                        <input type="text" placeholder="Enter your search key ... ">
-                                        <button><i class="icon ion-android-search"></i></button>
+                                        
+                                        <div class="d-flex">
+                                            <input type="text" id="searchInput" class="form-control mr-2" placeholder="Enter your search key ...">
+                                            <a class="btn btn-danger" id="searchLink" asp-action="index" asp-controller="shop" asp-route-searchStr="">
+                                                <i class="icon ion-android-search"></i>
+                                            </a>
+                                        </div>
+
                                     </form>
                                 </div>
                                 <div class="header-cart">
@@ -1184,7 +1190,20 @@
     <!--====== BACK TOP TOP PART ENDS ======-->
 
 
+    <script>
+        // Get the input field and the link
+        const searchInput = document.getElementById("searchInput");
+        const searchLink = document.getElementById("searchLink");
 
+        // Add event listener to the input field to update the link's route when the input changes
+        searchInput.addEventListener("input", function () {
+            // Get the current value of the input field
+            const searchStr = this.value;
+
+            // Update the href attribute of the link with the new search string
+            searchLink.setAttribute("href", `@Url.Action("index", "shop")?searchStr=${searchStr}`);
+        });
+    </script>
 
     <!--====== Vendors js ======-->
     <script src="~/assets/js/vendor/jquery-1.12.4.min.js"></script>

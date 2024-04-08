@@ -110,7 +110,14 @@
                     </div>
 
                     <div class="checkout-btn">
-                        <button class="main-btn main-btn-2"  type="submit">Place Order</button>
+                        @if (total > 0)
+                        {
+                            <button class="main-btn main-btn-2" type="submit">Place Order</button>
+                        }
+                        else
+                        {
+                            <button class="main-btn main-btn-2" type="button" disabled>Place Order</button>
+                        }
                     </div>
                 </div>
             </div>

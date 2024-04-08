@@ -16,7 +16,7 @@ public class ShopController : Controller
         _productService = productService;
         _context = context;
     }
-    public IActionResult Index(int? categoryId,int? minPrice,int? maxPrice,bool? isFeat,bool? isNew,bool? isBest, int page = 1,int itemPerPage=3)
+    public IActionResult Index(int? categoryId,int? minPrice,int? maxPrice,bool? isFeat,bool? isNew,bool? isBest,string? searchStr, int page = 1,int itemPerPage=3)
     {
         IQueryable<Product> products = null;
         ViewBag.Categories=_context.Categories.ToList();
@@ -27,6 +27,10 @@ public class ShopController : Controller
         else
         {
         products = _productService.GetAllAsQueryableAsync(x=>x.CategoryId==categoryId);
+        }
+        if(searchStr is not null)
+        {
+            products=products.Where(x=>x.Title.Contains(searchStr));
         }
         if(minPrice is not null && maxPrice is not null)
         {
