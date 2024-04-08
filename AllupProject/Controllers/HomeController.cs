@@ -56,9 +56,22 @@ public class HomeController : Controller
             return RedirectToAction("Cart");
 
         }
-        catch (Exception)
+        catch (MoreThanMaxLengthException ex)
         {
-            return NotFound();
+            ModelState.AddModelError("", ex.Message);
+            return RedirectToAction("Cart");
+        } 
+        catch (EntityCannotBeFoundException ex)
+        {
+            ModelState.AddModelError("", ex.Message);
+            return RedirectToAction("Cart");
+
+        }
+        catch (Exception ex)
+        {
+            ModelState.AddModelError("", ex.Message);
+            return RedirectToAction("Cart");
+
         }
 
     }
@@ -136,6 +149,11 @@ public class HomeController : Controller
         {
             await _orderService.CreateOrderAsync(HttpContext, orderItems, order);
             return RedirectToAction("Index");
+        }
+        catch (MoreThanMaxLengthException ex)
+        {
+            ModelState.AddModelError("", ex.Message);
+            return View();
         }
         catch (Exception ex)
         {

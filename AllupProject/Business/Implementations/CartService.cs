@@ -22,8 +22,10 @@ public class CartService:ICartService
     }
     public async Task AddToCart(HttpContext httpContext,int productId,int count=1)
     {
-        if (!await _context.Products.AnyAsync(x => x.Id == productId)) throw new EntityCannotBeFoundException();
-
+        if (!await _context.Products.AnyAsync(x => x.Id == productId && x.IsDeactive==false)) throw new EntityCannotBeFoundException();
+        Product? product=await _context.Products.FirstOrDefaultAsync(x => x.Id == productId);
+        if (product.IsDeactive == true) throw new EntityCannotBeFoundException("Product cannot be found");
+       
         List<CartItemViewModel> cartItems = new List<CartItemViewModel>();
         CartItemViewModel cartItem = null;
         CartItem userCartItem = null;
@@ -46,26 +48,38 @@ public class CartService:ICartService
 
                 if (cartItem is not null)
                 {
-                    cartItem.Count++;
+                    if (product.StockCount < cartItem.Count+count)
+                    {
+                        throw new MoreThanMaxLengthException("More Than Stock Count");
+                    }
+                    cartItem.Count+=count;
                 }
                 else
                 {
-                    cartItem = new CartItemViewModel()
+                    cartItem = new CartItemViewModel();
+
+                    if (product.StockCount < cartItem.Count + count)
                     {
-                        ProductId = productId,
-                        Count = count
-                    };
+                        throw new MoreThanMaxLengthException("More Than Stock Count");
+                    }
+                    cartItem.ProductId = productId;
+                    cartItem.Count = count;
 
                     cartItems.Add(cartItem);
                 }
             }
             else
             {
-                cartItem = new CartItemViewModel()
+
+                cartItem = new CartItemViewModel();
+
+                if (product.StockCount < cartItem.Count + count)
                 {
-                    ProductId = productId,
-                    Count = count 
-                };
+                    throw new MoreThanMaxLengthException("More Than Stock Count");
+                }
+                cartItem.ProductId = productId;
+                cartItem.Count = count;
+
 
                 cartItems.Add(cartItem);
             }
@@ -76,19 +90,26 @@ public class CartService:ICartService
 
             if (userCartItem is not null && !userCartItem.IsDeactive)
             {
+
+                if (product.StockCount < userCartItem.Count + count)
+                {
+                    throw new MoreThanMaxLengthException("More Than Stock Count");
+                }
                 userCartItem.Count++;
             }
             else
             {
-                userCartItem = new CartItem()
+                userCartItem = new CartItem();
+                if (product.StockCount < userCartItem.Count + count)
                 {
-                    ProductId = productId,
-                    Count = count,
-                    AppUserId = appUser.Id,
-                    IsDeactive = false,
-                    CreatedDate = DateTime.UtcNow,
-                    ModifiedDate = DateTime.UtcNow,
-                };
+                    throw new MoreThanMaxLengthException("More Than Stock Count");
+                }
+                userCartItem.ProductId = productId;
+                userCartItem.Count = count;
+                userCartItem.AppUserId = appUser.Id;
+                userCartItem.IsDeactive = false;
+                userCartItem. CreatedDate = DateTime.UtcNow;
+                userCartItem.ModifiedDate = DateTime.UtcNow;
 
                 await _context.CartItems.AddAsync(userCartItem);
             }

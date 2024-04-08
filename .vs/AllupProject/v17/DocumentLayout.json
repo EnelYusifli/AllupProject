@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Enel\\Desktop\\AllupProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|c:\\users\\enel\\desktop\\allupproject\\allupproject\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|solutionrelative:allupproject\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|c:\\users\\enel\\desktop\\allupproject\\allupproject\\controllers\\shopcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|solutionrelative:allupproject\\controllers\\shopcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|c:\\users\\enel\\desktop\\allupproject\\allupproject\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|solutionrelative:allupproject\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|c:\\users\\enel\\desktop\\allupproject\\allupproject\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|solutionrelative:allupproject\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|c:\\users\\enel\\desktop\\allupproject\\allupproject\\areas\\admin\\controllers\\approvationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0FBA4E0-B635-4911-A28B-4B2DD112779F}|AllupProject\\AllupProject.csproj|solutionrelative:allupproject\\areas\\admin\\controllers\\approvationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +26,58 @@
       "DocumentGroups": [
         {
           "DockedHeight": 379,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "ShopController.cs",
               "DocumentMoniker": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Controllers\\ShopController.cs",
               "RelativeDocumentMoniker": "AllupProject\\Controllers\\ShopController.cs",
               "ToolTip": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Controllers\\ShopController.cs",
               "RelativeToolTip": "AllupProject\\Controllers\\ShopController.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAAACAAAABEAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T06:20:28.833Z",
+              "WhenOpened": "2024-04-08T07:17:23.383Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "AllupProject\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "AllupProject\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAANwAAAAAAAAAAAAAAPMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-08T06:19:14.278Z",
+              "DocumentIndex": 1,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "AllupProject\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "AllupProject\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAHkAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-08T07:17:18.228Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "AllupProject\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "AllupProject\\Controllers\\AccountController.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-08T07:17:14.544Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ApprovationController.cs",
+              "DocumentMoniker": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Areas\\Admin\\Controllers\\ApprovationController.cs",
+              "RelativeDocumentMoniker": "AllupProject\\Areas\\Admin\\Controllers\\ApprovationController.cs",
+              "ToolTip": "C:\\Users\\Enel\\Desktop\\AllupProject\\AllupProject\\Areas\\Admin\\Controllers\\ApprovationController.cs",
+              "RelativeToolTip": "AllupProject\\Areas\\Admin\\Controllers\\ApprovationController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-08T07:16:40.955Z",
               "EditorCaption": ""
             }
           ]

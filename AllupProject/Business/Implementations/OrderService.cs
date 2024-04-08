@@ -4,6 +4,7 @@ using AllupProject.DAL;
 using AllupProject.Models;
 using AllupProject.ViewModels;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
@@ -77,6 +78,16 @@ public class OrderService:IOrderService
         }
         foreach (var item in items)
         {
+            Product? product = await _context.Products.FirstOrDefaultAsync(x => x.Id == item.ProductId);
+            if (product == null)
+            {
+                throw new EntityCannotBeFoundException();
+            }
+            if (product.IsDeactive == true) throw new EntityCannotBeFoundException();
+            if (product.StockCount < item.Count)
+            {
+                throw new MoreThanMaxLengthException();
+            }
             OrderItem orderItem = new()
             {
                 ProductId = item.ProductId,
@@ -87,11 +98,6 @@ public class OrderService:IOrderService
                 ModifiedDate = DateTime.UtcNow.AddHours(4)
             };
             await _context.OrderItems.AddAsync(orderItem);
-            Product product = await _context.Products.Where(x => x.Id == item.ProductId).FirstOrDefaultAsync();
-            if (product == null)
-            {
-                throw new EntityCannotBeFoundException();
-            }
             product.StockCount -= item.Count;
         await _context.Orders.AddAsync(newOrder);
             await _cartService.DeleteItemFromCart(httpContext, product.Id);
